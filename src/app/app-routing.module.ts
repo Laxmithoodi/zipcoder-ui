@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { AuthComponent } from './auth/auth.component'
+
+const routes: Routes = [
+  {path: 'auth/:provider/callback', component: AuthComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
