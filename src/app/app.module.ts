@@ -9,12 +9,14 @@ import { AuthService } from './auth/auth.service';
 import { AuthComponent } from './auth/auth.component'
 
 import { HttpClientModule }    from '@angular/common/http';
+import { LabIndexComponent } from './lab/index/lab-index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    LabComponent
+    LabComponent,
+    LabIndexComponent
   ],
   imports: [
     BrowserModule,
