@@ -10,13 +10,15 @@ import { AuthComponent } from './auth/auth.component'
 
 import { HttpClientModule }    from '@angular/common/http';
 import { LabIndexComponent } from './lab/index/lab-index.component';
+import { LabShowComponent } from './lab/show/lab-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     LabComponent,
-    LabIndexComponent
+    LabIndexComponent,
+    LabShowComponent
   ],
   imports: [
     BrowserModule,
