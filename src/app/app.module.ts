@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LabComponent } from './lab/lab.component';
 
 import { AuthService } from './auth/auth.service';
 import { AuthComponent } from './auth/auth.component'
@@ -11,14 +10,15 @@ import { AuthComponent } from './auth/auth.component'
 import { HttpClientModule }    from '@angular/common/http';
 import { LabIndexComponent } from './lab/index/lab-index.component';
 import { LabShowComponent } from './lab/show/lab-show.component';
+import { LabFormComponent } from './lab/form/lab-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    LabComponent,
     LabIndexComponent,
-    LabShowComponent
+    LabShowComponent,
+    LabFormComponent
   ],
   imports: [
     BrowserModule,
