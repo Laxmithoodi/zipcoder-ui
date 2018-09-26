@@ -11,6 +11,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { LabIndexComponent } from './lab/index/lab-index.component';
 import { LabShowComponent } from './lab/show/lab-show.component';
 import { LabFormComponent } from './lab/form/lab-form.component';
+import { LabService } from './lab/lab.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { LabFormComponent } from './lab/form/lab-form.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, LabService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
