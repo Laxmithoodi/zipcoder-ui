@@ -11,7 +11,11 @@ export class AuthService {
   constructor( private http: HttpClient) { }
 
   getUser(provider, data) {
-    const headers = new HttpHeaders().append('Content-Type', 'application/json').append('code', data["code"]).append('state', "randomstring").append('redirect_uri', `http://localhost:4200/auth/${provider}/callback`);
+    const headers = new HttpHeaders()
+                    .append('Content-Type', 'application/json')
+                    .append('code', data["code"])
+                    .append('state', "randomstring")
+                    .append('redirect_uri', `http://localhost:4200/auth/${provider}/callback`);
 
     this.http.post('http://localhost:3000/auth/' + provider, {}, {headers: headers}).subscribe(console.log);
   }
