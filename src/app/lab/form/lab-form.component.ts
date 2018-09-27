@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Lab } from './../lab';
+import { LabService } from './../lab.service';
 
 @Component({
   selector: 'app-lab-form',
@@ -6,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lab-form.component.scss']
 })
 export class LabFormComponent implements OnInit {
+  model: Lab;
+  id: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private service: LabService) {
+    this.id = this.route.snapshot.params['id'];
+  }
 
   ngOnInit() {
+    this.service.get(this.id).subscribe(data => this.model = data);
+  }
+
+  submit(){
+    this.service.create(this.model);
   }
 
 }

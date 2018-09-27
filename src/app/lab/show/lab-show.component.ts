@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Lab } from './../lab';
+import { LabService } from './../lab.service';
 
 @Component({
   selector: 'app-lab-show',
@@ -6,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lab-show.component.scss']
 })
 export class LabShowComponent implements OnInit {
+  lab: Lab;
+  id: number;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private service: LabService) {
+    this.id = this.route.snapshot.params['id'];
   }
 
+  ngOnInit() {
+    this.service.get(this.id).subscribe(data => this.lab = data);
+  }
 }

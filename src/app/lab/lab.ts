@@ -1,3 +1,7 @@
 export class Lab {
-  constructor(url: string, name?: string) {}
+  id: number = 1;
+
+  constructor(public url?: string,
+              public name?: string
+  ) {}
 }

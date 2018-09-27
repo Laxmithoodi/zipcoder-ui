@@ -1,3 +1,7 @@
-<p>
-  lab-index works!
-</p>
+<h1>Labs</h1>
+
+<ul>
+  <li *ngFor="let lab of labs">
+    <a href="/labs/{{lab.id}}/show">{{ lab.name }}</a>
+  </li>
+</ul>
