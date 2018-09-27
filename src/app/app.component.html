@@ -1,12 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<a href="https://github.com/login/oauth/authorize?client_id=38fd813a1c58c8680661&redirect_uri=http://localhost:4200/auth/github/callback&scope=user:email&state=randomstring">Log in with Github</a>
-<br />
-<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=170892913536-jhd03bp58evq2mbvf00b98bs633mtgq7.apps.googleusercontent.com&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&redirect_uri=http://localhost:4200/auth/google/callback&state=randomstring">Google</a>
-
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<router-outlet></router-outlet>
+<header>
+  <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(0%);">
+    <li class="bold">
+      <a href="/labs" class="waves-effect waves-teal">
+        Labs
+      </a>
+    </li>
+    <li class="bold">
+      <a class="waves-effect waves-teal"  href="https://github.com/login/oauth/authorize?client_id=38fd813a1c58c8680661&redirect_uri=http://localhost:4200/auth/github/callback&scope=user:email&state=randomstring">
+        Log in with Github
+      </a>
+    </li>
+    <li class="bold">
+      <a class="waves-effect waves-teal" href="https://accounts.google.com/o/oauth2/v2/auth?client_id=170892913536-jhd03bp58evq2mbvf00b98bs633mtgq7.apps.googleusercontent.com&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&redirect_uri=http://localhost:4200/auth/google/callback&state=randomstring">
+        Log in with Google
+      </a>
+    </li>
+  </ul>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

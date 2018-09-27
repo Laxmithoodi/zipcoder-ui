@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'auth/:provider/callback', component: AuthComponent},
 
   // lab
-  {path: 'labs', component: LabIndexComponent}
+  {path: 'labs', component: LabIndexComponent},
   {path: 'labs/:id/show', component: LabShowComponent}
 
 ];

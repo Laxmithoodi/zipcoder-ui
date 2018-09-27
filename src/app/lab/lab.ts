@@ -1,6 +1,3 @@
-class Lab {
-  name: string;
-  url: string;
-  // assigned_date: Date;
-  // due_date: Date;
+export class Lab {
+  constructor(url: string, name?: string) {}
 }
