@@ -1,0 +1,7 @@
+<h1>Students</h1>
+
+<ul>
+  <li *ngFor="let student of students">
+    <a href="/students/{{student.id}}/show">{{ student.name }}</a>
+  </li>
+</ul>

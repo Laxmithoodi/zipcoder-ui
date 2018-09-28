@@ -13,6 +13,9 @@ import { LabFormComponent } from './lab/form/lab-form.component';
 import { LabIndexComponent } from './lab/index/lab-index.component';
 import { LabShowComponent } from './lab/show/lab-show.component';
 import { LabService } from './lab/lab.service';
+import { StudentIndexComponent } from './student/index/student-index.component';
+import { StudentShowComponent } from './student/show/student-show.component';
+import { StudentFormComponent } from './student/form/student-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { LabService } from './lab/lab.service';
     AuthComponent,
     LabIndexComponent,
     LabShowComponent,
-    LabFormComponent
+    LabFormComponent,
+    StudentIndexComponent,
+    StudentShowComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
