@@ -14,7 +14,6 @@ export class LabIndexComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAll().subscribe(data => this.labs = data);
-
   }
 
 }

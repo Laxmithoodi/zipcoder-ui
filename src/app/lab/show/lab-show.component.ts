@@ -10,7 +10,7 @@ import { LabService } from './../lab.service';
   styleUrls: ['./lab-show.component.scss']
 })
 export class LabShowComponent implements OnInit {
-  lab: Lab;
+  lab: Lab = new Lab();
   id: number;
 
   constructor(private route: ActivatedRoute, private service: LabService) {

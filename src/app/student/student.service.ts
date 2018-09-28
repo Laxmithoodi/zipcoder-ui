@@ -29,5 +29,6 @@ export class StudentService {
 
   create(student) {
     this.api.post(this.RESOURCE_NAME, student).subscribe(console.log);
+    this.router.navigate(['/' + this.RESOURCE_NAME]);
   }
 }
