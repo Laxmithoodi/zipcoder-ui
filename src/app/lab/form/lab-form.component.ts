@@ -10,7 +10,7 @@ import { LabService } from './../lab.service';
   styleUrls: ['./lab-form.component.scss']
 })
 export class LabFormComponent implements OnInit {
-  model: Lab;
+  lab: Lab;
   id: number;
 
   constructor(private route: ActivatedRoute, private service: LabService) {
@@ -18,11 +18,11 @@ export class LabFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.get(this.id).subscribe(data => this.model = data);
+    this.service.get(this.id).subscribe(data => this.lab = data);
   }
 
   submit(){
-    this.service.create(this.model);
+    this.service.create(this.lab);
   }
 
 }
