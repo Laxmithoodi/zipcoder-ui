@@ -27,8 +27,7 @@ export class StudentService {
     }
   }
 
-  create(student) {
-    this.api.post(this.RESOURCE_NAME, student).subscribe(console.log);
-    this.router.navigate(['/' + this.RESOURCE_NAME]);
+  create(student): Observable<Student> {
+    return this.api.post(this.RESOURCE_NAME, student);
   }
 }

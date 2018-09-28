@@ -13,6 +13,7 @@ export class LabIndexComponent implements OnInit {
   constructor(private service: LabService) { }
 
   ngOnInit() {
+    console.log("lab index");
     this.service.getAll().subscribe(data => this.labs = data);
   }
 

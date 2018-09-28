@@ -16,12 +16,12 @@ const routes: Routes = [
 
   // lab
   {path: 'labs/new', component: LabFormComponent},
-  {path: 'labs/:id/show', component: LabShowComponent},
+  {path: 'labs/:id', component: LabShowComponent},
   {path: 'labs', component: LabIndexComponent},
 
   // student
   {path: 'students/new', component: StudentFormComponent},
-  {path: 'students/:id/show', component: StudentShowComponent},
+  {path: 'students/:id', component: StudentShowComponent},
   {path: 'students', component: StudentIndexComponent},
 
 ];

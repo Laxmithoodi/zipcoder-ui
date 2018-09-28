@@ -12,8 +12,9 @@ export class ApiService<T> {
 
   constructor(private auth: AuthService, private http: HttpClient) { }
 
-  post(resource, data) {
-    return this.http.post(this.API_URI + resource, data);
+  post(resource, data): Observable<T> {
+    console.log('getting data');
+    return this.http.post<T>(this.API_URI + resource, data);
   }
 
   getAll(resource): Observable<T[]> {

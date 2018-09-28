@@ -12,5 +12,5 @@
            required
            [(ngModel)]="lab.name" name="name">
   </div>
-  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="submit" class="btn btn-success" [disabled]="loading">Submit</button>
 </form>

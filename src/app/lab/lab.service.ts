@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
 
 import { ApiService } from './../api/api.service';
 import { Lab } from './lab';
@@ -11,7 +10,7 @@ import { Lab } from './lab';
 export class LabService {
   readonly RESOURCE_NAME = 'labs';
 
-  constructor(private api: ApiService<Lab>, private router: Router) { }
+  constructor(private api: ApiService<Lab>) { }
 
   getAll(): Observable<Lab[]> {
     return this.api.getAll(this.RESOURCE_NAME);
@@ -27,8 +26,7 @@ export class LabService {
     }
   }
 
-  create(lab) {
-    this.api.post(this.RESOURCE_NAME, lab).subscribe(console.log);
-    this.router.navigate(['/' + this.RESOURCE_NAME]);
+  create(lab): Observable<Lab> {
+    return this.api.post(this.RESOURCE_NAME, lab);
   }
 }

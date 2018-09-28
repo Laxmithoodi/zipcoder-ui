@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Lab } from './../lab';
 import { LabService } from './../lab.service';
@@ -12,8 +12,9 @@ import { LabService } from './../lab.service';
 export class LabFormComponent implements OnInit {
   lab: Lab;
   id: number;
+  loading: boolean = false;
 
-  constructor(private route: ActivatedRoute, private service: LabService) {
+  constructor(private route: ActivatedRoute, private service: LabService, private router: Router) {
     this.id = this.route.snapshot.params['id'];
   }
 
@@ -22,7 +23,8 @@ export class LabFormComponent implements OnInit {
   }
 
   submit(){
-    this.service.create(this.lab);
+    this.loading = true;
+    this.service.create(this.lab).subscribe(data => this.router.navigate(['/labs']));
   }
 
 }

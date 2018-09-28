@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Student } from './../student';
 import { StudentService } from './../student.service';
@@ -13,8 +13,9 @@ export class StudentFormComponent implements OnInit {
 
   student: Student;
   id: number;
+  loading: boolean = false;
 
-  constructor(private route: ActivatedRoute, private service: StudentService) {
+  constructor(private route: ActivatedRoute, private service: StudentService, private router: Router) {
     this.id = this.route.snapshot.params['id'];
   }
 
@@ -23,6 +24,7 @@ export class StudentFormComponent implements OnInit {
   }
 
   submit(){
-    this.service.create(this.student);
+    this.loading = true;
+    this.service.create(this.student).subscribe(response => this.router.navigate(['/students/' + response.id]))
   }
 }
