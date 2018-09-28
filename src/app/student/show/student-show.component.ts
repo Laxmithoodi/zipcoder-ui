@@ -11,7 +11,7 @@ import { StudentService } from './../student.service';
 })
 export class StudentShowComponent implements OnInit {
 
-  student: Student;
+  student: Student = new Student();
   id: number;
 
   constructor(private route: ActivatedRoute, private service: StudentService) {

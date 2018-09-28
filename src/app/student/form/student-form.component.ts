@@ -11,7 +11,7 @@ import { StudentService } from './../student.service';
 })
 export class StudentFormComponent implements OnInit {
 
-  lab: Student;
+  student: Student;
   id: number;
 
   constructor(private route: ActivatedRoute, private service: StudentService) {
@@ -19,10 +19,10 @@ export class StudentFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.get(this.id).subscribe(data => this.lab = data);
+    this.service.get(this.id).subscribe(data => this.student = data);
   }
 
   submit(){
-    this.service.create(this.lab);
+    this.service.create(this.student);
   }
 }

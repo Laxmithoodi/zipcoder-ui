@@ -1,9 +1,9 @@
 export class Student {
-  id: number = 1;
+  id: number;
   name: string;
   email: string;
   cell_number: string;
-  github_id: string;
+  github_id: number;
   github_username: string;
 
   public constructor(fields?:Partial<Student>) {
