@@ -13,7 +13,6 @@ export class ApiService<T> {
   constructor(private auth: AuthService, private http: HttpClient) { }
 
   post(resource, data): Observable<T> {
-    console.log('getting data');
     return this.http.post<T>(this.API_URI + resource, data);
   }
 

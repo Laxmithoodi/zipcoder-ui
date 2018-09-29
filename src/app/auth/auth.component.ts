@@ -15,5 +15,4 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.auth.getUser(this.route.snapshot.params['provider'], this.route.snapshot.queryParams);
   }
-
 }

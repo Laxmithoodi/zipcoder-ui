@@ -10,9 +10,11 @@ import { LabFormComponent } from './lab/form/lab-form.component';
 import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
+import { CurrentUserProfileComponent } from './current-user-profile/current-user-profile.component';
 
 const routes: Routes = [
   {path: 'auth/:provider/callback', component: AuthComponent},
+  {path: 'profile', component: CurrentUserProfileComponent},
 
   // lab
   {path: 'labs/new', component: LabFormComponent},
