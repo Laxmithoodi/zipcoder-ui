@@ -23,7 +23,8 @@ export class AuthService {
                     .append('state', data['state'])
                     .append('redirect_uri', `http://localhost:4200/auth/${provider}/callback`);
 
-    this.http.post('http://localhost:3000/auth/' + provider, {}, {headers: headers}).subscribe(result => this.setSession(result));
+    this.http.post('http://localhost:3000/auth/' + provider, {}, {headers: headers})
+             .subscribe(result => this.setSession(result));
   }
 
   private setSession(authResult): void {
@@ -33,7 +34,7 @@ export class AuthService {
     localStorage.setItem(AuthService.ACCESS_TOKEN_KEY, authResult.access_token);
 
     let student = authResult['student'];
-    console.log('setting auth');
+
     if (student) {
       localStorage.setItem(AuthService.USER_NAME_KEY, student.name);
       localStorage.setItem(AuthService.STUDENT_ID_KEY, student.id);
