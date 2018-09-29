@@ -23,4 +23,8 @@ export class ApiService<T> {
   getOne(resource, id): Observable<T> {
     return this.http.get<T>(this.API_URI + resource + '/' + id);
   }
+
+  update(resource, data) {
+    return this.http.put(data);
+  }
 }

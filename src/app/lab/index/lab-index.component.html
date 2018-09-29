@@ -1,7 +1,18 @@
 <h1>Labs</h1>
 
-<ul>
-  <li *ngFor="let lab of labs">
-    <a href="/labs/{{lab.id}}">{{ lab.name }}</a>
-  </li>
-</ul>
+<table class="striped">
+  <thead>
+    <th>Name</th>
+    <th>Github</th>
+    <th>Assigned</th>
+    <th>Due</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lab of labs">
+      <td><a href="/labs/{{lab.id}}">{{ lab.name }}</a></td>
+      <td><a href="{{ lab.url }}">{{ lab.url }}</a></td>
+      <td>{{ lab.assigned_date }}</td>
+      <td>{{ lab.due_date }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -16,11 +16,4 @@ export class AppComponent {
     console.log('getting user name ' + this.auth.getUserName());
     this.username = this.auth.getUserName();
   }
-
-  ngAfterContentInit() {
-    console.log('after content ' + this.auth.getUserName());
-    // this.username = this.auth.getUserName();
-  }
-
-
 }

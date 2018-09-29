@@ -29,4 +29,8 @@ export class LabService {
   create(lab): Observable<Lab> {
     return this.api.post(this.RESOURCE_NAME, lab);
   }
+
+  update(lab) {
+    this.api.update(this.RESOURCE_NAME, lab);
+  }
 }
