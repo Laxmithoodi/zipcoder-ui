@@ -33,4 +33,12 @@ export class LabService {
   update(lab) {
     this.api.update(this.RESOURCE_NAME, lab);
   }
+
+  delete(lab) {
+    this.api.delete(this.RESOURCE_NAME, lab.id);
+  }
+
+  assign(lab) {
+    this.api.post('students/assign/' + lab.id, {}).subscribe(console.log)
+  }
 }

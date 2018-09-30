@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Student } from './../student';
 import { StudentService } from './../student.service';
+import { Lab } from './../../lab/lab';
 
 @Component({
   selector: 'app-student-show',
@@ -13,6 +14,7 @@ export class StudentShowComponent implements OnInit {
 
   student: Student = new Student();
   id: number;
+  labs: Lab[] = [];
 
   constructor(private route: ActivatedRoute, private service: StudentService) {
     this.id = this.route.snapshot.params['id'];
@@ -20,6 +22,6 @@ export class StudentShowComponent implements OnInit {
 
   ngOnInit() {
     this.service.get(this.id).subscribe(data => this.student = data);
+    this.service.getAssignments(this.id).subscribe(data => this.labs = data);
   }
-
 }

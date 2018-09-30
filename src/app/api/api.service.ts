@@ -24,7 +24,15 @@ export class ApiService<T> {
     return this.http.get<T>(this.API_URI + resource + '/' + id);
   }
 
+  get(path): any {
+    return this.http.get(this.API_URI + path)
+  }
+
   update(resource, data) {
-    return this.http.put(data);
+    return this.http.put(this.API_URI + resource, data);
+  }
+
+  delete(resource, model) {
+    return this.http.delete(this.API_URI + resource + '/' + model.id)
   }
 }

@@ -20,6 +20,7 @@ export class LabShowComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('loading lab')
     this.service.get(this.lab.id).subscribe(data => this.lab = data);
   }
 
@@ -32,7 +33,7 @@ export class LabShowComponent implements OnInit {
   }
 
   update(newDate){
-    console.lab("updating ");
+    console.log("updating ");
     this.service.update(this.lab);
   }
 }

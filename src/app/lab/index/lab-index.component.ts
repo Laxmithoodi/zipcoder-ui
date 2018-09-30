@@ -16,4 +16,12 @@ export class LabIndexComponent implements OnInit {
     this.service.getAll().subscribe(data => this.labs = data);
   }
 
+  delete(lab) {
+    this.service.delete(lab);
+  }
+
+  assign(lab) {
+    this.service.assign(lab);
+    console.log('assigned');
+  }
 }

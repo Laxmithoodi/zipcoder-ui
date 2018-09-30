@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { ApiService } from './../api/api.service';
 import { Student } from './student';
+import { Lab } from './../lab/lab';
 
 
 @Injectable({
@@ -29,5 +30,9 @@ export class StudentService {
 
   create(student): Observable<Student> {
     return this.api.post(this.RESOURCE_NAME, student);
+  }
+
+  getAssignments(student_id): Observable<Lab[]> {
+    return this.api.get(this.RESOURCE_NAME + '/' + student_id + '/assignments');
   }
 }

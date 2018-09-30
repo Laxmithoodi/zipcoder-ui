@@ -2,17 +2,21 @@
 
 <table class="striped">
   <thead>
+    <th>Assign</th>
     <th>Name</th>
     <th>Github</th>
     <th>Assigned</th>
     <th>Due</th>
+    <th>Actions</th>
   </thead>
   <tbody>
     <tr *ngFor="let lab of labs">
+      <td><a class="btn" (click)="assign(lab)">Assign</a></td>
       <td><a href="/labs/{{lab.id}}">{{ lab.name }}</a></td>
       <td><a href="{{ lab.url }}">{{ lab.url }}</a></td>
-      <td>{{ lab.assigned_date }}</td>
-      <td>{{ lab.due_date }}</td>
+      <td>{{ lab.assigned_date | date }}</td>
+      <td>{{ lab.due_date | date }}</td>
+      <td class="buttons"><a class="btn grey darken-2" href="/labs/{{ lab.id }}/edit">Edit</a> <a class="btn red" (click)="delete(lab)">Delete</a></td>
     </tr>
   </tbody>
 </table>
