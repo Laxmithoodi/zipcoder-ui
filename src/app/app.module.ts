@@ -15,9 +15,15 @@ import { LabIndexComponent } from './lab/index/lab-index.component';
 import { LabShowComponent } from './lab/show/lab-show.component';
 import { LabService } from './lab/lab.service';
 
+import { AssessmentFormComponent } from './assessment/form/assessment-form.component';
+import { AssessmentIndexComponent } from './assessment/index/assessment-index.component';
+import { AssessmentShowComponent } from './assessment/show/assessment-show.component';
+import { AssessmentService } from './assessment/assessment.service';
+
 import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
+import { StudentService } from './student/student.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,9 @@ import { StudentFormComponent } from './student/form/student-form.component';
     LabIndexComponent,
     LabShowComponent,
     LabFormComponent,
+    AssessmentIndexComponent,
+    AssessmentShowComponent,
+    AssessmentFormComponent,
     StudentIndexComponent,
     StudentShowComponent,
     StudentFormComponent,
@@ -37,7 +46,12 @@ import { StudentFormComponent } from './student/form/student-form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, LabService],
+  providers: [
+    AuthService,
+    LabService,
+    AssessmentService,
+    StudentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

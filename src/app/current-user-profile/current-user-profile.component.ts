@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Student } from './../student/student';
 import { StudentService } from './../student/student.service';
 import { AuthService } from './../auth/auth.service';
-import { Lab } from './../../lab/lab';
+import { Lab } from './../lab/lab';
 
 @Component({
   selector: 'current-user-profile',
