@@ -21,7 +21,7 @@ export class LabIndexComponent implements OnInit {
   }
 
   assign(lab) {
+    lab.assigned_date = new Date();
     this.service.assign(lab);
-    console.log('assigned');
   }
 }

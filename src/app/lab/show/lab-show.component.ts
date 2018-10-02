@@ -20,20 +20,6 @@ export class LabShowComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('loading lab')
     this.service.get(this.lab.id).subscribe(data => this.lab = data);
-  }
-
-  ngAfterViewInit() {
-    document.addEventListener('DOMContentLoaded', function() {
-      let elems = document.querySelectorAll('.datepicker');
-      let options = {autoClose: true, format: 'yyyy-mm-dd', onSelect: this.update};
-      let instances = M.Datepicker.init(elems, options);
-    });
-  }
-
-  update(newDate){
-    console.log("updating ");
-    this.service.update(this.lab);
   }
 }

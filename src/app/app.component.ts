@@ -13,7 +13,6 @@ export class AppComponent {
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
-    console.log('getting user name ' + this.auth.getUserName());
     this.username = this.auth.getUserName();
   }
 }

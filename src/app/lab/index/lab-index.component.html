@@ -11,11 +11,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let lab of labs">
-      <td><a class="btn" (click)="assign(lab)">Assign</a></td>
+      <td><button class="btn" (click)="assign(lab)" [disabled]="lab.assigned_date">Assign</button></td>
       <td><a href="/labs/{{lab.id}}">{{ lab.name }}</a></td>
       <td><a href="{{ lab.url }}">{{ lab.url }}</a></td>
-      <td>{{ lab.assigned_date | date }}</td>
-      <td>{{ lab.due_date | date }}</td>
+      <td>{{ lab.assigned_date | date:'E M/d' }}</td>
+      <td>{{ lab.due_date | date:'E M/d' }}</td>
       <td class="buttons"><a class="btn grey darken-2" href="/labs/{{ lab.id }}/edit">Edit</a> <a class="btn red" (click)="delete(lab)">Delete</a></td>
     </tr>
   </tbody>
