@@ -10,7 +10,7 @@ import { LabService } from './../lab.service';
   styleUrls: ['./lab-form.component.scss']
 })
 export class LabFormComponent implements OnInit {
-  lab: Lab = {};
+  lab: Lab = new Lab();
   id: number;
   loading: boolean = false;
   assigned_date = new Date();
@@ -31,8 +31,8 @@ export class LabFormComponent implements OnInit {
     console.log(this.lab);
     console.log(this.lab.assigned_date)
 
-    this.lab.assigned_date = (new Date(this.assigned_date)).toISOString();
-    this.lab.due_date = (new Date(this.due_date)).toISOString();
+    // this.lab.assigned_date = (new Date(this.assigned_date)).toISOString();
+    // this.lab.due_date = (new Date(this.due_date)).toISOString();
     if (this.id) {
       this.service.update(this.lab).subscribe(data => this.router.navigate(['/labs']));
     } else {

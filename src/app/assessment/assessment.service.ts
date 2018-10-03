@@ -31,10 +31,10 @@ export class AssessmentService {
   }
 
   update(assessment) {
-    this.api.update(this.RESOURCE_NAME, assessment);
+    return this.api.update(this.RESOURCE_NAME, assessment);
   }
 
   delete(assessment) {
-    this.api.delete(this.RESOURCE_NAME, assessment);
+    return this.api.delete(this.RESOURCE_NAME, assessment);
   }
 }

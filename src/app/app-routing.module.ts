@@ -11,6 +11,9 @@ import { AssessmentIndexComponent } from './assessment/index/assessment-index.co
 import { AssessmentShowComponent } from './assessment/show/assessment-show.component';
 import { AssessmentFormComponent } from './assessment/form/assessment-form.component';
 
+import { SubmissionIndexComponent } from './submission/index/submission-index.component';
+import { SubmissionFormComponent } from './submission/form/submission-form.component';
+
 import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
@@ -36,6 +39,10 @@ const routes: Routes = [
   {path: 'students/:id', component: StudentShowComponent},
   {path: 'students', component: StudentIndexComponent},
 
+  // submissions
+  {path: 'submissions/new', component: SubmissionFormComponent},
+  {path: 'submissions', component: SubmissionIndexComponent},
+  {path: 'submissions/:id/edit', component: SubmissionFormComponent},
 
 ];
 

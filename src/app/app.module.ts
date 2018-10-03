@@ -20,6 +20,10 @@ import { AssessmentIndexComponent } from './assessment/index/assessment-index.co
 import { AssessmentShowComponent } from './assessment/show/assessment-show.component';
 import { AssessmentService } from './assessment/assessment.service';
 
+import { SubmissionFormComponent } from './submission/form/submission-form.component';
+import { SubmissionIndexComponent } from './submission/index/submission-index.component';
+import { SubmissionService } from './submission/submission.service';
+
 import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
@@ -38,7 +42,9 @@ import { StudentService } from './student/student.service';
     StudentIndexComponent,
     StudentShowComponent,
     StudentFormComponent,
-    CurrentUserProfileComponent
+    CurrentUserProfileComponent,
+    SubmissionFormComponent,
+    SubmissionIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,8 @@ import { StudentService } from './student/student.service';
     AuthService,
     LabService,
     AssessmentService,
-    StudentService
+    StudentService,
+    SubmissionService
   ],
   bootstrap: [AppComponent]
 })

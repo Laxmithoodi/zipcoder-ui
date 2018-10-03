@@ -1,0 +1,19 @@
+<h1>Submission</h1>
+
+<table class="striped">
+  <thead>
+    <th>Id</th>
+    <th>PR</th>
+    <th>Student Id</th>
+    <th>Submittable Id</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let submission of submissions">
+      <td>{{ submission.id }}</td>
+      <td><a href="{{ submission.pr_url }}">PR URL</a></td>
+      <td><a href="/students/{{ submission.student_id}}">{{ submission.student_id }}</a></td>
+      <td><a href="/{{ submission.submittable }}/{{ submission.submittable_id}}">{{ submission.submittable_id }}</a></td>
+      <td class="buttons"><a class="btn grey darken-2" href="/submissions/{{ submission.id }}/edit">Edit</a> <a class="btn red" (click)="delete(submission)">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
