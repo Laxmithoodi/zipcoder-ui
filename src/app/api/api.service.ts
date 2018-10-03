@@ -29,7 +29,7 @@ export class ApiService<T> {
   }
 
   update(resource, data) {
-    return this.http.put(this.API_URI + resource, data);
+    return this.http.put(this.API_URI + resource + '/' + data['id'], data);
   }
 
   delete(resource, model) {

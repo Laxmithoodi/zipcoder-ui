@@ -1,5 +1,7 @@
 export class Lab {
-  id: number = 1;
+  id: number;
+  url: string;
+  name: string;
   assigned_date: Date;
   due_date: Date;
 

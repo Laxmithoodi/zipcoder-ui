@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let lab of labs">
-      <td><button class="btn" (click)="assign(lab)" [disabled]="lab.assigned_date">Assign</button></td>
+      <td><button class="btn" (click)="assign(lab)">Assign</button></td>
       <td><a href="/labs/{{lab.id}}">{{ lab.name }}</a></td>
       <td><a href="{{ lab.url }}">{{ lab.url }}</a></td>
       <td>{{ lab.assigned_date | date:'E M/d' }}</td>

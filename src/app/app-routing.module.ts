@@ -22,6 +22,7 @@ const routes: Routes = [
 
   // lab
   {path: 'labs/new', component: LabFormComponent},
+  {path: 'labs/:id/edit', component: LabFormComponent},
   {path: 'labs/:id', component: LabShowComponent},
   {path: 'labs', component: LabIndexComponent},
 
