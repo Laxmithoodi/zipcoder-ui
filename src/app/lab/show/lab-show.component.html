@@ -40,7 +40,7 @@
           <th>Github</th>
         </thead>
         <tbody>
-          <tr *ngFor="let student of students">
+          <tr *ngFor="let student of getNotCompleted(students)">
             <td><a href="/students/{{student.id}}/show">{{ student.name }}</a></td>
             <td><a href="{{ student.email }}">{{ student.email }}</a></td>
             <td>{{ student.cell_number }}</td>
@@ -62,7 +62,7 @@
           <th>Github</th>
         </thead>
         <tbody>
-          <tr *ngFor="let student of students">
+          <tr *ngFor="let student of getCompleted(students)">
             <td><a href="/students/{{student.id}}">{{ student.name }}</a></td>
             <td><a href="{{ student.email }}">{{ student.email }}</a></td>
             <td>{{ student.cell_number }}</td>

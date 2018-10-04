@@ -20,6 +20,19 @@ export class LabShowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.get(this.lab.id).subscribe(data => this.lab = data);
+    if (this.lab.id) {
+      this.service.getStudents(this.lab.id).subscribe(data => {
+        this.lab = data.lab;
+        this.students = data.students;
+      });
+    }
+  }
+
+  getNotCompleted(students) {
+    return students.filter(student => student['submissions'].length == 0);
+  }
+
+  getCompleted(students){
+    return students.filter(student => student['submissions'].length > 0);
   }
 }

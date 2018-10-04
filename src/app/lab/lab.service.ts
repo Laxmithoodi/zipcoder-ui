@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { ApiService } from './../api/api.service';
 import { Lab } from './lab';
+import { Student } from './../student/student';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,9 @@ export class LabService {
 
   assign(lab) {
     return this.api.post('students/assign/' + lab.id, {}).subscribe(console.log)
+  }
+
+  getStudents(lab_id) {
+    return this.api.get(`${this.RESOURCE_NAME}/${lab_id}/students`);
   }
 }

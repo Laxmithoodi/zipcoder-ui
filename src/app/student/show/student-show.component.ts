@@ -24,4 +24,13 @@ export class StudentShowComponent implements OnInit {
     this.service.get(this.id).subscribe(data => this.student = data);
     this.service.getAssignments(this.id).subscribe(data => this.labs = data);
   }
+
+  getNotCompleted(labs) {
+    console.log(labs);
+    return labs.filter(lab => lab['submissions'].length == 0);
+  }
+
+  getCompleted(labs){
+    return labs.filter(lab => lab['submissions'].length > 0);
+  }
 }
