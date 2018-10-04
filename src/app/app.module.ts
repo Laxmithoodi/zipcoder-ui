@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// import { AuthInterceptor } from './api/auth-interceptor';
 import { AuthService } from './auth/auth.service';
 import { AuthComponent } from './auth/auth.component';
 import { CurrentUserProfileComponent } from './current-user-profile/current-user-profile.component';
