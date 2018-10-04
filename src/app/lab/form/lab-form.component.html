@@ -13,11 +13,15 @@
            [(ngModel)]="lab.name" name="name">
   </div>
   <div class="form-group">
-    <label for="assigned_date">Assigned date (yyyy-mm-dd)</label>
-    <input type="text" class="form-control" id="assigned_date"
+    <label for="assigned_date">Assigned date</label>
+    <input type="text" class="form-control datepicker" id="assigned_date"
            [(ngModel)]="lab.assigned_date" name="assigned_date">
   </div>
-
+  <div class="form-group">
+    <label for="due_date">Due date</label>
+    <input type="text" class="form-control datepicker" id="due_date"
+           [(ngModel)]="lab.due_date" name="due_date">
+  </div>
   <br />
   <button type="submit" class="btn btn-success" [disabled]="loading">Submit</button>
 </form>

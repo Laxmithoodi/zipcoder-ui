@@ -26,13 +26,18 @@ export class LabFormComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    let form  = this;
+    document.addEventListener('DOMContentLoaded', () => {
+      let elems = document.querySelectorAll('.datepicker');
+      let options = {autoClose: true, onSelect: function(date) {form.lab[this.el.id] = date} };
+      let instances = M.Datepicker.init(elems, options);
+
+    });
+  }
+
   submit(){
     this.loading = true;
-    console.log(this.lab);
-    console.log(this.lab.assigned_date)
-
-    // this.lab.assigned_date = (new Date(this.assigned_date)).toISOString();
-    // this.lab.due_date = (new Date(this.due_date)).toISOString();
     if (this.id) {
       this.service.update(this.lab).subscribe(data => this.router.navigate(['/labs']));
     } else {
