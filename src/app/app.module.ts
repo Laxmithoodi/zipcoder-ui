@@ -30,6 +30,7 @@ import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
 import { StudentService } from './student/student.service';
 import { HomeComponent } from './home/home.component';
+import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HomeComponent } from './home/home.component';
     CurrentUserProfileComponent,
     SubmissionFormComponent,
     SubmissionIndexComponent,
-    HomeComponent
+    HomeComponent,
+    AuthLogoutComponent
   ],
   imports: [
     BrowserModule,

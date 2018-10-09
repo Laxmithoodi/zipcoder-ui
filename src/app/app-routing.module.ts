@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth/auth.component';
+import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
 
 import { LabIndexComponent } from './lab/index/lab-index.component';
 import { LabShowComponent } from './lab/show/lab-show.component';
@@ -24,7 +25,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
 
-  {path: 'auth/logout', component: AuthComponent},
+  {path: 'auth/logout', component: AuthLogoutComponent},
   {path: 'auth/:provider/callback', component: AuthComponent},
   {path: 'profile', component: CurrentUserProfileComponent},
 
