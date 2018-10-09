@@ -1,3 +1,12 @@
-<h3>
-  Logging in!
-</h3>
+<div *ngIf="!message">
+  <h4>Logging in...</h4>
+</div>
+<div *ngIf="message">
+  <h3>
+    Error
+  </h3>
+  <p>
+    Unable to log in. Error {{ message }}. Please let an instructor know.
+  </p>
+  <a href="/" class="btn">Try again</a>
+</div>

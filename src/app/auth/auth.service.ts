@@ -23,12 +23,10 @@ export class AuthService {
                     .append('state', data['state'])
                     .append('redirect_uri', `http://localhost:4200/auth/${provider}/callback`);
 
-    this.http.post('http://localhost:3000/auth/' + provider, {}, {headers: headers})
-             .subscribe(result => this.setSession(result));
+    return this.http.post('http://localhost:3000/auth/' + provider, {}, {headers: headers})
   }
 
-  private setSession(authResult): void {
-    console.log(authResult);
+  public setSession(authResult): void {
     // Set the time that the access token will expire at
     // const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem(AuthService.ACCESS_TOKEN_KEY, authResult.access_token);
@@ -38,10 +36,8 @@ export class AuthService {
     if (student) {
       localStorage.setItem(AuthService.USER_NAME_KEY, student.name);
       localStorage.setItem(AuthService.STUDENT_ID_KEY, student.id);
-      this.router.navigate(['/profile'])
     } else {
       localStorage.setItem(AuthService.USER_NAME_KEY, authResult.person.email);
-      this.router.navigate(['/students'])
     }
   }
 
@@ -49,8 +45,7 @@ export class AuthService {
     // Remove tokens and expiry time from localStorage
     localStorage.removeItem(AuthService.ACCESS_TOKEN_KEY);
     localStorage.removeItem(AuthService.USER_NAME_KEY)
-    // Go back to the home route
-    this.router.navigate(['/']);
+    localStorage.removeItem(AuthService.STUDENT_ID_KEY);
   }
 
   public isAuthenticated(): boolean {
@@ -66,7 +61,7 @@ export class AuthService {
   }
 
   public isStudent(): boolean {
-    return this.getStudentId() != null;
+    return this.getStudentId() > 0;
   }
 
   public getStudentId(): number {
