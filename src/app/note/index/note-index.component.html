@@ -1,0 +1,16 @@
+<h1>Notes</h1>
+
+<table class="striped">
+  <thead>
+    <th>Student</th>
+    <th>Notes</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let note of notes">
+      <td>Student name</td>
+      <td><a href="/notes/{{note.id}}">{{ note.name }}</a></td>
+      <td class="buttons"><a class="btn grey darken-2" href="/notes/{{ note.id }}/edit">Edit</a> <a class="btn red" (click)="delete(note)">Delete</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<h1>{{id ? 'Update' : 'New'}} Note</h1>
+<form materialize (ngSubmit)="submit()" #noteForm="ngForm">
+  <div class="form-group">
+    <label for="url">URL</label>
+    <input type="text"  class="form-control" id="url" required
+           [(ngModel)]="note.url" name="url">
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"
+           required
+           [(ngModel)]="note.name" name="name">
+  </div>
+
+  <br />
+  <button type="submit" class="btn btn-success" [disabled]="loading">Submit</button>
+</form>
