@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Submission } from './../submission';
 import { SubmissionService } from './../submission.service';
+import * as M from "materialize-css/dist/js/materialize";
 
 @Component({
   selector: 'app-submission-index',

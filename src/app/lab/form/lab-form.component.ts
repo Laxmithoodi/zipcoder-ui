@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Lab } from './../lab';
 import { LabService } from './../lab.service';
 
+import * as M from "materialize-css/dist/js/materialize";
+
 @Component({
   selector: 'app-lab-form',
   templateUrl: './lab-form.component.html',
@@ -32,7 +34,6 @@ export class LabFormComponent implements OnInit {
       let elems = document.querySelectorAll('.datepicker');
       let options = {autoClose: true, onSelect: function(date) {form.lab[this.el.id] = date} };
       let instances = M.Datepicker.init(elems, options);
-
     });
   }
 

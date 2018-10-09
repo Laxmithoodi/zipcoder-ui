@@ -1,5 +1,5 @@
 <h1>{{id ? 'Update' : 'New'}} Lab</h1>
-<form (ngSubmit)="submit()" #labForm="ngForm">
+<form materialize (ngSubmit)="submit()" #labForm="ngForm">
   <div class="form-group">
     <label for="url">URL</label>
     <input type="text"  class="form-control" id="url" required

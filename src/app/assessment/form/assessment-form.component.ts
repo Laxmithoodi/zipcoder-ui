@@ -10,10 +10,10 @@ import { AssessmentService } from './../assessment.service';
   styleUrls: ['./assessment-form.component.scss']
 })
 export class AssessmentFormComponent implements OnInit {
-  assessment: Assessment;
+  assessment: Assessment = new Assessment();
   id: number;
   loading: boolean = false;
-  levels: ['Exam', 'Quiz', 'Practice']
+  levels: string[] =['Exam', 'Quiz', 'Practice']
 
   constructor(private route: ActivatedRoute, private service: AssessmentService, private router: Router) {
     this.id = this.route.snapshot.params['id'];
@@ -25,7 +25,12 @@ export class AssessmentFormComponent implements OnInit {
 
   submit(){
     this.loading = true;
-    this.service.create(this.assessment).subscribe(data => this.router.navigate(['/assessments']));
+    if (this.id) {
+      this.service.update(this.assessment).subscribe(data => this.router.navigate(['/assessments']));
+    } else {
+      this.service.create(this.assessment).subscribe(data => this.router.navigate(['/assessments']));
+    }
+
   }
 
 }

@@ -19,7 +19,12 @@ import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
 import { CurrentUserProfileComponent } from './current-user-profile/current-user-profile.component';
 
+import { HomeComponent } from './home/home.component';
+
 const routes: Routes = [
+  {path: '', component: HomeComponent},
+
+  {path: 'auth/logout', component: AuthComponent},
   {path: 'auth/:provider/callback', component: AuthComponent},
   {path: 'profile', component: CurrentUserProfileComponent},
 
@@ -31,6 +36,7 @@ const routes: Routes = [
 
   // assessments
   {path: 'assessments/new', component: AssessmentFormComponent},
+  {path: 'assessments/:id/edit', component: AssessmentFormComponent},
   {path: 'assessments/:id', component: AssessmentShowComponent},
   {path: 'assessments', component: AssessmentIndexComponent},
 

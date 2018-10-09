@@ -29,6 +29,7 @@ import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
 import { StudentService } from './student/student.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +46,14 @@ import { StudentService } from './student/student.service';
     StudentFormComponent,
     CurrentUserProfileComponent,
     SubmissionFormComponent,
-    SubmissionIndexComponent
+    SubmissionIndexComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     AuthService,
