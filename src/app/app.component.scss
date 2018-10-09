@@ -1,3 +1,5 @@
-main, header, footer {
-  padding-left: 320px;
+@media only screen and (min-width : 426px) {
+  main, header, footer {
+    padding-left: 320px;
+  }
 }
