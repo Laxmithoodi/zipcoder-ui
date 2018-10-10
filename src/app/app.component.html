@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header *ngIf="isAuthenticated()">
+<header *ngIf="isInstructor">
   <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(0%);">
       <li class="bold">
         Students
@@ -61,20 +61,11 @@
         </li>
       </ul>
     </li>
-    <li>
-      User
-      <ul>
-        <li class="bold">
-          <a class="waves-effect waves-teal"  href="/auth/logout">
-            Logout
-          </a>
-        </li>
-      </ul>
-    </li>
-
   </ul>
 </header>
 <main>
-  <div class="right" *ngIf=username>Hi {{ user.username }}!</div>
+  <div class="right" *ngIf="user.username">
+    <div>Hi {{ user.username }}! <a href="/auth/logout">Logout</a></div>
+  </div>
   <router-outlet></router-outlet>
 </main>
