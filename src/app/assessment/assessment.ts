@@ -1,5 +1,6 @@
 export class Assessment {
   id: number = 1;
+  name: string;
   level: string;
   max_score: number;
   url: string;
