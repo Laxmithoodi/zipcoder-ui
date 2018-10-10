@@ -29,6 +29,12 @@ import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
 import { StudentService } from './student/student.service';
+
+import { NoteFormComponent } from './note/form/note-form.component';
+import { NoteIndexComponent } from './note/index/note-index.component';
+import { NoteShowComponent } from './note/show/note-show.component';
+import { NoteService } from './note/note.service';
+
 import { HomeComponent } from './home/home.component';
 import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
 
@@ -45,6 +51,9 @@ import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
     StudentIndexComponent,
     StudentShowComponent,
     StudentFormComponent,
+    NoteIndexComponent,
+    NoteShowComponent,
+    NoteFormComponent,
     CurrentUserProfileComponent,
     SubmissionFormComponent,
     SubmissionIndexComponent,

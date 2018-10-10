@@ -26,42 +26,57 @@
   </div>
 </div>
 
-
 <div class="row cards">
-  <div class="col m5 card">
-    <div class="card-content">
-      <div class="card-title">Assigned</div>
+   <div class="col s12">
+     <ul class="tabs">
+       <li class="tab col s3"><a href="#lab-list" class="active">Labs</a></li>
+       <li class="tab col s3"><a  href="#assessment-list">Assessments</a></li>
+       <li class="tab col s3"><a href="#note-list">Notes</a></li>
+     </ul>
+   </div>
+   <div id="lab-list" class="col s12">
+     <div class="col m5 card">
+       <div class="card-content">
+         <div class="card-title">Assigned</div>
 
-      <table class="striped">
-        <thead>
-          <th>Name</th>
-          <th>Due Date</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let lab of getNotCompleted(labs)">
-            <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
-            <td>{{ lab.due_date | date }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="col m5 card">
-    <div class="card-content">
-      <div class="card-title">Completed</div>
+         <table class="striped">
+           <thead>
+             <th>Name</th>
+             <th>Due Date</th>
+           </thead>
+           <tbody>
+             <tr *ngFor="let lab of getNotCompleted(labs)">
+               <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
+               <td>{{ lab.due_date | date }}</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+     <div class="col m5 card">
+       <div class="card-content">
+         <div class="card-title">Completed</div>
 
-      <table class="striped">
-        <thead>
-          <th>Name</th>
-          <th>PR</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let lab of getCompleted(labs)">
-            <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+         <table class="striped">
+           <thead>
+             <th>Name</th>
+             <th>PR</th>
+           </thead>
+           <tbody>
+             <tr *ngFor="let lab of getCompleted(labs)">
+               <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
+               <td></td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+
+   </div>
+   <div id="assessment-list" class="col s12">
+     <app-note-index></app-note-index>
+   </div>
+   <div id="note-list" class="col s12">
+     <app-note-index [notes]="notes"></app-note-index>
+   </div>
+ </div>

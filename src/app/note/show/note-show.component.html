@@ -1,27 +1,8 @@
-<h1>{{note.name}}</h1>
 <div class="row">
   <div class="col s2">
     <div class="form-group">
-        <noteel for="id_inline">ID</noteel>
+        <label for="id_inline">ID</label>
         <div>{{ note.id }}</div>
-    </div>
-  </div>
-  <div class="col s4">
-    <div class="form-group">
-        <noteel for="url_inline">Url</noteel>
-        <div><a href="{{ note.url }}">{{ note.url }}</a></div>
-    </div>
-  </div>
-  <div class="col s3">
-    <div class="form-group">
-        <noteel for="assigned_date_inline">Assigned date</noteel>
-        <div>{{ note.assigned_date | date:'E M/d' }}</div>
-    </div>
-  </div>
-  <div class="col s3">
-    <div class="form-group">
-        <noteel for="due_date_inline">Due date</noteel>
-        <div>{{ note.due_date | date:'E M/d' }}</div>
     </div>
   </div>
 </div>

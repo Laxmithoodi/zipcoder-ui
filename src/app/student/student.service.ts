@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from './../api/api.service';
 import { Student } from './student';
 import { Lab } from './../lab/lab';
+import { Note } from './../note/note';
 
 
 @Injectable({
@@ -34,5 +35,9 @@ export class StudentService {
 
   getAssignments(student_id): Observable<Lab[]> {
     return this.api.get(this.RESOURCE_NAME + '/' + student_id + '/assignments');
+  }
+
+  getNotes(student_id): Observable<Note[]> {
+    return this.api.get(this.RESOURCE_NAME + '/' + student_id + '/comments')
   }
 }

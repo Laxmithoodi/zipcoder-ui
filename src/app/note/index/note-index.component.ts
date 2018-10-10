@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Note } from './../note';
 import { NoteService } from './../note.service';
 
@@ -8,20 +8,15 @@ import { NoteService } from './../note.service';
   styleUrls: ['./note-index.component.scss']
 })
 export class NoteIndexComponent implements OnInit {
-  notes: Array<Note>;
+  @Input() notes: Note[];
 
   constructor(private service: NoteService) { }
 
   ngOnInit() {
-    this.service.getAll().subscribe(data => this.notes = data);
+    // this.service.getAll().subscribe(data => this.notes = data);
   }
 
   delete(note) {
     this.service.delete(note);
-  }
-
-  assign(note) {
-    note.assigned_date = new Date();
-    this.service.assign(note);
   }
 }

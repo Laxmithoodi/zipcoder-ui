@@ -1,15 +1,15 @@
-<h1>Notes</h1>
+<h4 class="card-title">Notes</h4>
 
 <table class="striped">
   <thead>
-    <th>Student</th>
-    <th>Notes</th>
+    <th>Creator</th>
+    <th>Body</th>
     <th>Actions</th>
   </thead>
   <tbody>
     <tr *ngFor="let note of notes">
-      <td>Student name</td>
-      <td><a href="/notes/{{note.id}}">{{ note.name }}</a></td>
+      <td>{{ note.creator_email }}</td>
+      <td>{{ note.body }}</td>
       <td class="buttons"><a class="btn grey darken-2" href="/notes/{{ note.id }}/edit">Edit</a> <a class="btn red" (click)="delete(note)">Delete</a></td>
     </tr>
   </tbody>
