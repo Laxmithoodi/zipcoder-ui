@@ -12,10 +12,6 @@ export class NoteIndexComponent implements OnInit {
 
   constructor(private service: NoteService) { }
 
-  ngOnInit() {
-    // this.service.getAll().subscribe(data => this.notes = data);
-  }
-
   delete(note) {
     this.service.delete(note);
   }

@@ -9,7 +9,6 @@ import { LabShowComponent } from './lab/show/lab-show.component';
 import { LabFormComponent } from './lab/form/lab-form.component';
 
 import { NoteIndexComponent } from './note/index/note-index.component';
-import { NoteShowComponent } from './note/show/note-show.component';
 import { NoteFormComponent } from './note/form/note-form.component';
 
 import { AssessmentIndexComponent } from './assessment/index/assessment-index.component';
@@ -58,7 +57,6 @@ const routes: Routes = [
   // note
   {path: 'notes/new', component: NoteFormComponent},
   {path: 'notes/:id/edit', component: NoteFormComponent},
-  {path: 'notes/:id', component: NoteShowComponent},
   {path: 'notes', component: NoteIndexComponent},
 ];
 

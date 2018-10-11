@@ -32,11 +32,11 @@ import { StudentService } from './student/student.service';
 
 import { NoteFormComponent } from './note/form/note-form.component';
 import { NoteIndexComponent } from './note/index/note-index.component';
-import { NoteShowComponent } from './note/show/note-show.component';
 import { NoteService } from './note/note.service';
 
 import { HomeComponent } from './home/home.component';
 import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
+import { LabsComponent } from './student/labs/labs.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +51,16 @@ import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
     StudentIndexComponent,
     StudentShowComponent,
     StudentFormComponent,
+
     NoteIndexComponent,
-    NoteShowComponent,
     NoteFormComponent,
+
     CurrentUserProfileComponent,
     SubmissionFormComponent,
     SubmissionIndexComponent,
     HomeComponent,
-    AuthLogoutComponent
+    AuthLogoutComponent,
+    LabsComponent
   ],
   imports: [
     BrowserModule,

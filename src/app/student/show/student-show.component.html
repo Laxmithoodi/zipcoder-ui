@@ -35,43 +35,7 @@
      </ul>
    </div>
    <div id="lab-list" class="col s12">
-     <div class="col m5 card">
-       <div class="card-content">
-         <div class="card-title">Assigned</div>
-
-         <table class="striped">
-           <thead>
-             <th>Name</th>
-             <th>Due Date</th>
-           </thead>
-           <tbody>
-             <tr *ngFor="let lab of getNotCompleted(labs)">
-               <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
-               <td>{{ lab.due_date | date }}</td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
-     </div>
-     <div class="col m5 card">
-       <div class="card-content">
-         <div class="card-title">Completed</div>
-
-         <table class="striped">
-           <thead>
-             <th>Name</th>
-             <th>PR</th>
-           </thead>
-           <tbody>
-             <tr *ngFor="let lab of getCompleted(labs)">
-               <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
-               <td></td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
-     </div>
-
+     <app-student-labs [labs]="labs"></app-student-labs>
    </div>
    <div id="assessment-list" class="col s12">
      <app-note-index></app-note-index>
