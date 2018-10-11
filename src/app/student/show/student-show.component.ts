@@ -40,5 +40,5 @@ export class StudentShowComponent implements OnInit {
 
   getCompleted(labs){
     return labs.filter(lab => lab['submissions'].length > 0);
-  }
+  }  
 }

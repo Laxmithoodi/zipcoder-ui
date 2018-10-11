@@ -15,4 +15,6 @@ export class NoteIndexComponent implements OnInit {
   delete(note) {
     this.service.delete(note);
   }
+
+  ngOnInit() {}
 }

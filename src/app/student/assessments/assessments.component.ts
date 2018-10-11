@@ -4,10 +4,11 @@ import { Assessment } from './../../assessment/assessment';
 
 @Component({
   selector: 'app-assessments',
-  templateUrl: './assessments.component.html',
-  style: ''
+  templateUrl: './assessments.component.html'
 })
 export class AssessmentsComponent implements OnInit {
 
-  @Input assessments: Assessment[] = [];
+  @Input() assessments: Assessment[] = [];
+
+  ngOnInit() {}
 }

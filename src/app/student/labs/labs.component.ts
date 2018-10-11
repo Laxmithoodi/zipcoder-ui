@@ -10,6 +10,8 @@ import { Lab } from './../../lab/lab';
 export class LabsComponent implements OnInit {
   @Input() labs: Lab[] = [];
 
+  ngOnInit() {}
+
   getNotCompleted(labs) {
     return labs.filter(lab => lab['submissions'].length == 0);
   }

@@ -1,0 +1,42 @@
+<h2>{{ student.name }}</h2>
+<div class="row">
+  <div class="col s3">
+    <div class="form-group">
+        <label for="id_inline">ID</label>
+        <div>{{ student.id }}</div>
+    </div>
+  </div>
+  <div class="col s3">
+    <div class="form-group">
+        <label for="github_username_inline">Github Username</label>
+        <div>{{ student.github_username }}</div>
+    </div>
+  </div>
+  <div class="col s3">
+    <div class="form-group">
+        <label for="email_inline">Email</label>
+        <div>{{ student.email }}</div>
+    </div>
+  </div>
+  <div class="col s3">
+    <div class="form-group">
+        <label for="cell_number_inline">Phone number</label>
+        <div>{{ student.cell_number }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="row cards">
+   <div class="col s12">
+     <ul class="tabs">
+       <li class="tab col s3"><a href="#lab-list" class="active">Labs</a></li>
+       <li class="tab col s3"><a  href="#assessment-list">Assessments</a></li>
+     </ul>
+   </div>
+   <div id="lab-list" class="col s12">
+     <app-student-labs [labs]="labs"></app-student-labs>
+   </div>
+   <div id="assessment-list" class="col s12">
+     <app-note-index></app-note-index>
+   </div>
+ </div>

@@ -8,8 +8,8 @@ import { Lab } from './../lab/lab';
 
 @Component({
   selector: 'current-user-profile',
-  templateUrl: './../student/show/student-show.component.html',
-  styleUrls: ['./../student/show/student-show.component.scss']
+  templateUrl: 'current-user-profile.component.html',
+  styleUrls: []
 })
 export class CurrentUserProfileComponent implements OnInit {
 
