@@ -8,7 +8,7 @@ import { Lab } from './../../lab/lab';
   styleUrls: ['./labs.component.scss']
 })
 export class LabsComponent implements OnInit {
-  @Input() labs: Lab[]: [];
+  @Input() labs: Lab[] = [];
 
   getNotCompleted(labs) {
     return labs.filter(lab => lab['submissions'].length == 0);

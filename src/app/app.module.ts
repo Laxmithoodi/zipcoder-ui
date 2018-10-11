@@ -37,6 +37,7 @@ import { NoteService } from './note/note.service';
 import { HomeComponent } from './home/home.component';
 import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
 import { LabsComponent } from './student/labs/labs.component';
+import { AssessmentsComponent } from './student/assessments/assessments.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { LabsComponent } from './student/labs/labs.component';
     SubmissionIndexComponent,
     HomeComponent,
     AuthLogoutComponent,
-    LabsComponent
+    LabsComponent,
+    AssessmentsComponent
   ],
   imports: [
     BrowserModule,
