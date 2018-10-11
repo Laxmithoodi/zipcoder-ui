@@ -29,7 +29,7 @@ export class StudentShowComponent implements OnInit {
     this.service.get(this.id).subscribe(data => this.student = data);
     this.service.getAssignments(this.id).subscribe(data => this.labs = data);
     this.service.getNotes(this.id).subscribe(data => console.log(data));
-    this.service.getAssessments(this.id).subscribe(data => console.log(data));
+    this.service.getAssessments(this.id).subscribe(data => this.assessments = data);
 
     document.addEventListener('DOMContentLoaded', () => {
       let elems = document.querySelectorAll('.tabs');
