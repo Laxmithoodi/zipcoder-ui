@@ -8,6 +8,9 @@ import { LabIndexComponent } from './lab/index/lab-index.component';
 import { LabShowComponent } from './lab/show/lab-show.component';
 import { LabFormComponent } from './lab/form/lab-form.component';
 
+import { NoteIndexComponent } from './note/index/note-index.component';
+import { NoteFormComponent } from './note/form/note-form.component';
+
 import { AssessmentIndexComponent } from './assessment/index/assessment-index.component';
 import { AssessmentShowComponent } from './assessment/show/assessment-show.component';
 import { AssessmentFormComponent } from './assessment/form/assessment-form.component';
@@ -51,6 +54,9 @@ const routes: Routes = [
   {path: 'submissions', component: SubmissionIndexComponent},
   {path: 'submissions/:id/edit', component: SubmissionFormComponent},
 
+  // note
+  {path: 'students/:student_id/notes/new', component: NoteFormComponent},
+  {path: 'students/:student_id/notes/:id/edit', component: NoteFormComponent},
 ];
 
 @NgModule({

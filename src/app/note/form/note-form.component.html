@@ -1,0 +1,12 @@
+<h4 class="title">{{id ? 'Update' : 'New'}} Note</h4>
+<p *ngIf="student">Updating note for {{ student.name }}</p>
+<form materialize (ngSubmit)="submit()" #noteForm="ngForm" class="note-form" *ngIf="note">
+  <div class="form-group">
+    <textarea class="form-control" id="body" required
+           [(ngModel)]="note.body" name="body"></textarea>
+
+  </div>
+
+  <br />
+  <button type="submit" class="btn btn-success" [disabled]="loading">Submit</button>
+</form>

@@ -29,8 +29,15 @@ import { StudentIndexComponent } from './student/index/student-index.component';
 import { StudentShowComponent } from './student/show/student-show.component';
 import { StudentFormComponent } from './student/form/student-form.component';
 import { StudentService } from './student/student.service';
+
+import { NoteFormComponent } from './note/form/note-form.component';
+import { NoteIndexComponent } from './note/index/note-index.component';
+import { NoteService } from './note/note.service';
+
 import { HomeComponent } from './home/home.component';
 import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
+import { LabsComponent } from './student/labs/labs.component';
+import { AssessmentsComponent } from './student/assessments/assessments.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +52,17 @@ import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
     StudentIndexComponent,
     StudentShowComponent,
     StudentFormComponent,
+
+    NoteIndexComponent,
+    NoteFormComponent,
+
     CurrentUserProfileComponent,
     SubmissionFormComponent,
     SubmissionIndexComponent,
     HomeComponent,
-    AuthLogoutComponent
+    AuthLogoutComponent,
+    LabsComponent,
+    AssessmentsComponent
   ],
   imports: [
     BrowserModule,

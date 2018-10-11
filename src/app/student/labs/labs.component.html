@@ -1,0 +1,32 @@
+<div class="student-labs">
+  <div class="col m6">
+    <h4 class="title">Assigned</h4>
+    <table class="striped">
+      <thead>
+        <th>Name</th>
+        <th>Due Date</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lab of getNotCompleted(labs)">
+          <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
+          <td>{{ lab.due_date | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col m6">
+    <h4 class="title">Completed</h4>
+    <table class="striped">
+      <thead>
+        <th>Name</th>
+        <th>PR</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lab of getCompleted(labs)">
+          <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

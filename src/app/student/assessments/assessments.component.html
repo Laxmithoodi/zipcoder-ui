@@ -1,0 +1,19 @@
+<h4 class="title">Assessments</h4>
+<table class="striped">
+  <thead>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>PR</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assessment of assessments">
+      <td>{{ assessment.id }}</td>
+      <td>{{ assessment.level }}</td>
+      <td>{{ assessment.name }}</td>
+      <td>{{ assessment.grades[0] ? assessment.grades[0].grade : '' }}</td>
+      <td><a href="{{ assessment.name }}">PR</a></td>
+    </tr>
+  </tbody>
+</table>
