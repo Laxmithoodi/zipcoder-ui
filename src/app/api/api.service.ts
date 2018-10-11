@@ -8,7 +8,7 @@ import { AuthService } from './../auth/auth.service';
   providedIn: 'root'
 })
 export class ApiService<T> {
-  readonly API_URI = 'https://ersatz-aroura.herokuapp.com/'
+  readonly API_URI = 'http://localhost:3000/'
 
   constructor(private auth: AuthService, private http: HttpClient) { }
 

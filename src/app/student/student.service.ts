@@ -33,11 +33,19 @@ export class StudentService {
     return this.api.post(this.RESOURCE_NAME, student);
   }
 
+  getResource(student_id, resource): Observable<any> {
+    return this.api.get(`${this.RESOURCE_NAME}/${student_id}/${resource}`);
+  }
+
   getAssignments(student_id): Observable<Lab[]> {
-    return this.api.get(this.RESOURCE_NAME + '/' + student_id + '/assignments');
+    return this.getResource(student_id, 'assignments');
   }
 
   getNotes(student_id): Observable<Note[]> {
-    return this.api.get(this.RESOURCE_NAME + '/' + student_id + '/comments')
+    return this.getResource(student_id, 'comments');
+  }
+
+  getAssessments(student_id): Observable<Assessment>{
+    return this.getResource(student_id, 'assessments');
   }
 }

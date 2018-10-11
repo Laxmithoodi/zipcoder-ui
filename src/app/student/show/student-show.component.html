@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="row cards">
+<div class="row">
    <div class="col s12">
      <ul class="tabs">
        <li class="tab col s3"><a href="#lab-list" class="active">Labs</a></li>
@@ -38,7 +38,7 @@
      <app-student-labs [labs]="labs"></app-student-labs>
    </div>
    <div id="assessment-list" class="col s12">
-     <app-note-index></app-note-index>
+     <app-student-assessments [assessments]="assessments"></app-student-assessments>
    </div>
    <div id="note-list" class="col s12">
      <app-note-index [notes]="notes"></app-note-index>
