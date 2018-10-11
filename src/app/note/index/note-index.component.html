@@ -1,16 +1,21 @@
-<h4 class="card-title">Notes</h4>
+<app-note-form [student_id]="student.id"></app-note-form>
 
-<table class="striped">
+<h4 class="title">Notes</h4>
+<table class="row striped notes">
   <thead>
-    <th>Creator</th>
-    <th>Body</th>
-    <th>Actions</th>
+    <th class="col s3">Creator</th>
+    <th class="col s5">Body</th>
+    <th class="col s1">Created</th>
+    <th class="col s3">Actions</th>
   </thead>
   <tbody>
-    <tr *ngFor="let note of notes">
-      <td>{{ note.creator_email }}</td>
-      <td>{{ note.body }}</td>
-      <td class="buttons"><a class="btn grey darken-2" href="/notes/{{ note.id }}/edit">Edit</a> <a class="btn red" (click)="delete(note)">Delete</a></td>
+    <tr *ngFor="let note of notes" class="row">
+      <td class="col s3">{{ note.note_taker }}</td>
+      <td class="col s5">{{ note.body }}</td>
+      <td class="col s1">{{ note.created_at | date: 'MM/dd' }}</td>
+      <td class="col s3 buttons">
+        <a class="btn grey darken-2" href="/students/{{student.id}}/notes/{{note.id }}/edit">Edit</a> <a class="btn red" (click)="delete(note)">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -5,7 +5,7 @@ import { ApiService } from './../api/api.service';
 import { Student } from './student';
 import { Lab } from './../lab/lab';
 import { Note } from './../note/note';
-
+import { Assessment } from './../assessment/assessment';
 
 @Injectable({
   providedIn: 'root'
@@ -42,10 +42,11 @@ export class StudentService {
   }
 
   getNotes(student_id): Observable<Note[]> {
-    return this.getResource(student_id, 'comments');
+    // return this.getResource(student_id, 'comments');
+    return this.api.get(`${this.RESOURCE_NAME}/${student_id}/comments`);
   }
 
-  getAssessments(student_id): Observable<Assessment>{
+  getAssessments(student_id): Observable<Assessment[]>{
     return this.getResource(student_id, 'assessments');
   }
 }

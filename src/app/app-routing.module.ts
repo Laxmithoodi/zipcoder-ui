@@ -55,9 +55,8 @@ const routes: Routes = [
   {path: 'submissions/:id/edit', component: SubmissionFormComponent},
 
   // note
-  {path: 'notes/new', component: NoteFormComponent},
-  {path: 'notes/:id/edit', component: NoteFormComponent},
-  {path: 'notes', component: NoteIndexComponent},
+  {path: 'students/:student_id/notes/new', component: NoteFormComponent},
+  {path: 'students/:student_id/notes/:id/edit', component: NoteFormComponent},
 ];
 
 @NgModule({

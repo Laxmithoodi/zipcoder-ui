@@ -9,17 +9,17 @@ import { Student } from './../student/student';
   providedIn: 'root'
 })
 export class NoteService {
-  readonly RESOURCE_NAME = 'notes';
+  readonly RESOURCE_NAME = 'comments';
 
   constructor(private api: ApiService<Note>) { }
 
-  getAll(): Observable<Note[]> {
-    return this.api.getAll(this.RESOURCE_NAME);
+  getAll(student_id): Observable<Note[]> {
+    return this.api.getAll(this.formatPath(student_id));
   }
 
-  get(id): Observable<Note> {
+  get(student_id, id): Observable<Note> {
     if (id) {
-      return this.api.getOne(this.RESOURCE_NAME, id);
+      return this.api.getOne(this.formatPath(student_id), id);
     } else {
       return new Observable((observer) => {
         observer.next(new Note());
@@ -27,15 +27,21 @@ export class NoteService {
     }
   }
 
-  create(note): Observable<Note> {
-    return this.api.post(this.RESOURCE_NAME, note);
+  create(student_id, note): Observable<Note> {
+    return this.api.post(this.formatPath(student_id), {body: note.body});
   }
 
-  update(note) {
-    return this.api.update(this.RESOURCE_NAME, note);
+  update(student_id, note) {
+    return this.api.update(this.formatPath(student_id), {body: note.body, id: note.id});
   }
 
-  delete(note) {
-    return this.api.delete(this.RESOURCE_NAME, note.id);
+  delete(student_id, note) {
+    console.log(this.formatPath(student_id));
+    console.log(note.id);
+    return this.api.delete(this.formatPath(student_id), note);
+  }
+
+  formatPath(student_id) {
+    return `students/${student_id}/${this.RESOURCE_NAME}`;
   }
 }

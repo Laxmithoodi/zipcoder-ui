@@ -29,9 +29,9 @@
 <div class="row">
    <div class="col s12">
      <ul class="tabs">
-       <li class="tab col s3"><a href="#lab-list" class="active">Labs</a></li>
-       <li class="tab col s3"><a  href="#assessment-list">Assessments</a></li>
-       <li class="tab col s3"><a href="#note-list">Notes</a></li>
+       <li class="tab col s3"><a href="/students/{{student.id}}#lab-list" class="active">Labs</a></li>
+       <li class="tab col s3"><a  href="/students/{{student.id}}#assessment-list">Assessments</a></li>
+       <li class="tab col s3"><a href="/students/{{student.id}}#note-list">Notes</a></li>
      </ul>
    </div>
    <div id="lab-list" class="col s12">
@@ -41,6 +41,6 @@
      <app-student-assessments [assessments]="assessments"></app-student-assessments>
    </div>
    <div id="note-list" class="col s12">
-     <app-note-index [notes]="notes"></app-note-index>
+     <app-note-index [notes]="notes" [student]="student"></app-note-index>
    </div>
  </div>

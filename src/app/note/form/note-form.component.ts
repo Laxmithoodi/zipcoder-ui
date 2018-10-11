@@ -1,48 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Note } from './../note';
 import { NoteService } from './../note.service';
+import { Student } from './../../student/student';
 
 import * as M from "materialize-css/dist/js/materialize";
 
 @Component({
   selector: 'app-note-form',
-  templateUrl: './note-form.component.html'
+  templateUrl: './note-form.component.html',
+  styleUrls: ['./note-form.component.scss']
 })
 export class NoteFormComponent implements OnInit {
-  note: Note = new Note();
+  @Input() note: Note = new Note();
+  @Input() student_id: number;
   id: number;
   loading: boolean = false;
-  assigned_date = new Date();
+
 
   constructor(private route: ActivatedRoute, private service: NoteService, private router: Router) {
-    this.id = this.route.snapshot.params['id'];
+    this.student_id = this.route.snapshot.params['student_id'];
+    if (this.student_id) {
+      this.id = this.route.snapshot.params['id'];
+    }
   }
 
   ngOnInit() {
-    this.service.get(this.id).subscribe(data => {
-      // formated_assigned_date = new Date(data.)
-      this.note = data
-    });
-  }
-
-  ngAfterViewInit() {
-    let form  = this;
-    document.addEventListener('DOMContentLoaded', () => {
-      let elems = document.querySelectorAll('.datepicker');
-      let options = {autoClose: true, onSelect: function(date) {form.note[this.el.id] = date} };
-      let instances = M.Datepicker.init(elems, options);
-    });
+    if (this.id) {
+      this.service.get(this.student_id, this.id).subscribe(data => {
+        this.note = data;
+      });
+    }
   }
 
   submit(){
     this.loading = true;
-    if (this.id) {
-      this.service.update(this.note).subscribe(data => this.router.navigate(['/notes']));
-    } else {
-      this.service.create(this.note).subscribe(data => this.router.navigate(['/notes']));
-    }
+    location.reload();
+    // let redirectUrl = `/students/${this.student_id}/`;
+    // // console.log(redirectUrl);
+    // // this.router.navigate([redirectUrl]);
+    // if (this.id) {
+    //   this.service.update(this.student_id, this.note).subscribe(data => this.router.navigate([redirectUrl]));
+    // } else {
+    //   this.service.create(this.student_id, this.note).subscribe(data => this.router.navigate([redirectUrl]));
+    // }
   }
 
+  resetNewNote(note){
+    this.note = new Note();
+    console.log(this.note.body);
+  }
 }
