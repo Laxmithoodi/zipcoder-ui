@@ -36,7 +36,7 @@ export class LabService {
   }
 
   delete(lab) {
-    return this.api.delete(this.RESOURCE_NAME, lab.id);
+    return this.api.delete(this.RESOURCE_NAME, lab);
   }
 
   assign(lab) {

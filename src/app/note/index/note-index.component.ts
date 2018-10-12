@@ -19,12 +19,10 @@ export class NoteIndexComponent implements OnInit {
   ngOnInit(){}
 
   delete(note) {
-    console.log(note);
     this.service.delete(this.student.id, note).subscribe(data => this.remove(data, note));
   }
 
   remove(response, note) {
-    console.log(response);
     if (response.message == 'success') {
       M.toast({html: 'Note deleted!'})
       let index = this.notes.indexOf(note);

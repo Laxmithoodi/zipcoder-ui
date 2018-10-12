@@ -13,7 +13,11 @@
       <td>{{ assessment.level }}</td>
       <td>{{ assessment.name }}</td>
       <td>{{ assessment.grades[0] ? assessment.grades[0].grade : '' }}</td>
-      <td><a href="{{ assessment.name }}">PR</a></td>
+      <td>
+        <span *ngIf="assessment.submissions.length > 0">
+          <a href="{{ assessment.submissions[0].pr_url }}">PR</a>
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>

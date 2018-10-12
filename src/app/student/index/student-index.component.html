@@ -6,6 +6,7 @@
     <th>Email</th>
     <th>Phone #</th>
     <th>Github</th>
+    <th>Action</th>
   </thead>
   <tbody>
     <tr *ngFor="let student of students">
@@ -13,6 +14,9 @@
       <td><a href="{{ student.email }}">{{ student.email }}</a></td>
       <td>{{ student.cell_number }}</td>
       <td><a href="https://github.com/{{ student.github_username }}">{{ student.github_username }}</a></td>
+      <td class="buttons">
+        <a class="btn red" (click)="delete(student)">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -33,6 +33,10 @@ export class StudentService {
     return this.api.post(this.RESOURCE_NAME, student);
   }
 
+  delete(student) {
+    return this.api.delete(this.RESOURCE_NAME, student);
+  }
+
   getResource(student_id, resource): Observable<any> {
     return this.api.get(`${this.RESOURCE_NAME}/${student_id}/${resource}`);
   }
