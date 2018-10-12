@@ -37,4 +37,8 @@ export class AssessmentService {
   delete(assessment) {
     return this.api.delete(this.RESOURCE_NAME, assessment);
   }
+
+  getStudents(assessment) {
+    return this.api.get(`${this.RESOURCE_NAME}/${assessment.id}/students`);
+  }
 }

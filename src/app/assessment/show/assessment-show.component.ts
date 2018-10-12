@@ -21,5 +21,14 @@ export class AssessmentShowComponent implements OnInit {
 
   ngOnInit() {
     this.service.get(this.assessment.id).subscribe(data => this.assessment = data);
+    this.service.getStudents(this.assessment).subscribe(data => this.students = data);
+  }
+
+  getNotCompleted(students) {
+    return students.filter(student => student['submissions'].length == 0);
+  }
+
+  getCompleted(students){
+    return students.filter(student => student['submissions'].length > 0);
   }
 }
