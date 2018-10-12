@@ -36,19 +36,10 @@ export class NoteFormComponent implements OnInit {
 
   submit(){
     this.loading = true;
-    location.reload();
-    // let redirectUrl = `/students/${this.student_id}/`;
-    // // console.log(redirectUrl);
-    // // this.router.navigate([redirectUrl]);
-    // if (this.id) {
-    //   this.service.update(this.student_id, this.note).subscribe(data => this.router.navigate([redirectUrl]));
-    // } else {
-    //   this.service.create(this.student_id, this.note).subscribe(data => this.router.navigate([redirectUrl]));
-    // }
-  }
-
-  resetNewNote(note){
-    this.note = new Note();
-    console.log(this.note.body);
+    if (this.id) {
+      this.service.update(this.student_id, this.note).subscribe(d => location.reload());
+    } else {
+      this.service.create(this.student_id, this.note).subscribe(d => location.reload());
+    }
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { AuthService } from './../../auth/auth.service';
+
 import { Student } from './../student';
 import { StudentService } from './../student.service';
 import { Lab } from './../../lab/lab';
@@ -20,9 +22,13 @@ export class StudentShowComponent implements OnInit {
   labs: Lab[] = [];
   notes: Note[] = [];
   assessments: Assessment[] = [];
+  isInstructor: boolean = false;
 
-  constructor(private route: ActivatedRoute, private service: StudentService) {
+  constructor(private route: ActivatedRoute,
+              private service: StudentService,
+              private auth: AuthService) {
     this.id = this.route.snapshot.params['id'];
+    this.isInstructor = !this.auth.isStudent();
   }
 
   ngOnInit() {
