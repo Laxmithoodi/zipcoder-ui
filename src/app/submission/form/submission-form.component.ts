@@ -12,6 +12,7 @@ export class SubmissionFormComponent implements OnInit {
   submission: Submission = new Submission();
   id: number;
   loading: boolean = false;
+  types = ['assessment', 'lab'];
 
   constructor(private route: ActivatedRoute, private service: SubmissionService, private router: Router) {
     this.id = this.route.snapshot.params['id'];
