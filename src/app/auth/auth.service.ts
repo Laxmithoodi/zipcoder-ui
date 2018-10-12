@@ -21,9 +21,9 @@ export class AuthService {
                     .append('Content-Type', 'application/json')
                     .append('code', data['code'])
                     .append('state', data['state'])
-                    .append('redirect_uri', `http://localhost:4200/auth/${provider}/callback`);
+                    .append('redirect_uri', `https://portal.zipcode.rocks/auth/${provider}/callback`);
 
-    return this.http.post('http://localhost:3000/auth/' + provider, {}, {headers: headers})
+    return this.http.post('https://ersatz-aroura.herokuapp.com/auth/' + provider, {}, {headers: headers})
   }
 
   public setSession(authResult): void {
