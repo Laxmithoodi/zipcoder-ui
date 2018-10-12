@@ -65,7 +65,7 @@
 </header>
 <main>
   <div class="right" *ngIf="user.username">
-    <div>Hi {{ user.username }}! <a href="/auth/logout">Logout</a></div>
+    <div class="user-info">Hi {{ user.username }}! <a href="/auth/logout">Logout</a></div>
   </div>
   <router-outlet></router-outlet>
 </main>
