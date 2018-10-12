@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { catchError, map, tap } from 'rxjs/operators';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +20,9 @@ export class AuthService {
                     .append('Content-Type', 'application/json')
                     .append('code', data['code'])
                     .append('state', data['state'])
-                    .append('redirect_uri', `https://portal.zipcode.rocks/auth/${provider}/callback`);
+                    .append('redirect_uri', `${environment.host}/auth/${provider}/callback`);
 
-    return this.http.post('https://ersatz-aroura.herokuapp.com/auth/' + provider, {}, {headers: headers})
+    return this.http.post(`${environment.apiUrl}/auth/${provider}`, {}, {headers: headers})
   }
 
   public setSession(authResult): void {
