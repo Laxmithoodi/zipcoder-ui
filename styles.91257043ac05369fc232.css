@@ -1,4 +1,4 @@
-.card-title,h1{color:#26a69a}.cards .card{margin:10px;border:1px solid #e1e1e1}.buttons .btn{margin-right:10px}select.browser-default{border-bottom:1px solid #9e9e9e}/*!
+.title,h1{color:#26a69a}.cards .card{margin:10px;border:1px solid #e1e1e1}.buttons .btn{margin-right:10px}select.browser-default{border-bottom:1px solid #9e9e9e}.tab{border-right:1px solid #efefef;border-bottom:2px solid #efefef;margin:2px}.tab:last-child{border-right:0}/*!
  * Materialize v1.0.0-rc.2 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
