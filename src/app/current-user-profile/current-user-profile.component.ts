@@ -6,6 +6,8 @@ import { StudentService } from './../student/student.service';
 import { AuthService } from './../auth/auth.service';
 import { Lab } from './../lab/lab';
 
+import * as M from "materialize-css/dist/js/materialize";
+
 @Component({
   selector: 'current-user-profile',
   templateUrl: 'current-user-profile.component.html',
@@ -33,5 +35,10 @@ export class CurrentUserProfileComponent implements OnInit {
 
   getCompleted(labs){
     return labs.filter(lab => lab['submissions'].length > 0);
+  }
+
+  ngAfterViewInit(){
+    let elems = document.querySelectorAll('.tabs');
+    M.Tabs.init(elems, {});
   }
 }
