@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Student } from './../student/student';
 import { StudentService } from './../student/student.service';
@@ -21,14 +21,20 @@ export class CurrentUserProfileComponent implements OnInit {
   labs: Lab[] = [];
   assessments: Assessment[] = [];
 
-  constructor(private auth: AuthService, private service: StudentService) {
+  constructor(private auth: AuthService, private service: StudentService, private router: Router) {
     this.id = auth.getStudentId();
+
   }
 
   ngOnInit() {
-    this.service.get(this.id).subscribe(data => this.student = data);
-    this.service.getAssignments(this.id).subscribe(data => this.labs = data);
-    this.service.getAssessments(this.id).subscribe(data => this.assessments = data);
+    if (this.id < 1) {
+      M.toast({html: 'Please log in again.'});
+      this.router.navigate(['/']);
+    } else {
+      this.service.get(this.id).subscribe(data => this.student = data);
+      this.service.getAssignments(this.id).subscribe(data => this.labs = data);
+      this.service.getAssessments(this.id).subscribe(data => this.assessments = data);
+    }
   }
 
   getNotCompleted(labs) {
