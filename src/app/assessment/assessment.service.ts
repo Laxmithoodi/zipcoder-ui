@@ -41,4 +41,13 @@ export class AssessmentService {
   getStudents(assessment) {
     return this.api.get(`${this.RESOURCE_NAME}/${assessment.id}/students`);
   }
+
+  addGrade(assessment, student) {
+    let data = {student_id: student.id,
+                assessment_id: assessment.id,
+                grade: student.grade
+                };
+
+    return this.api.post('grades', data);
+  }
 }

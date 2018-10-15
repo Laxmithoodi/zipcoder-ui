@@ -16,9 +16,9 @@
 
 
 <div class="row cards">
-  <div class="col m5 card">
+  <div class="col m4 card">
     <div class="card-content">
-      <div class="card-title">NOT Completed</div>
+      <div class="card-title title">NOT Completed</div>
 
       <table class="striped">
         <thead>
@@ -32,22 +32,32 @@
       </table>
     </div>
   </div>
-  <div class="col m5 card">
+  <div class="col m7 card">
     <div class="card-content">
-      <div class="card-title">Completed</div>
-
-      <table class="striped">
-        <thead>
-          <th>Name</th>
-          <th>PR</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let student of getCompleted(students)">
-            <td><a href="/students/{{student.id}}">{{ student.name }}</a></td>
-            <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card-title title">Completed</div>
+        <table class="striped">
+          <thead>
+            <th>Name</th>
+            <th>PR</th>
+            <th>Score</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of getCompleted(students)">
+              <td><a href="/students/{{student.id}}">{{ student.name }}</a></td>
+              <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
+              <td>
+                <span *ngIf="student.grades.length > 0">
+                  {{ student.grades[0].grade}}
+                </span>
+                <span *ngIf="student.grades.length < 1">
+                  <input type="number" name="student-grade"
+                  class="student-grade" [(ngModel)]="student.grade" />
+                  <a class="btn green" (click)="addGrade(student)">Save</a>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>

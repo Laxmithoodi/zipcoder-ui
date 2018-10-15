@@ -31,4 +31,12 @@ export class AssessmentShowComponent implements OnInit {
   getCompleted(students){
     return students.filter(student => student['submissions'].length > 0);
   }
+
+  addGrade(student) {
+    return this.service.addGrade(this.assessment, student).subscribe(data => this.updateStudentView(data, student));
+  }
+
+  updateStudentView(data, student) {
+    student.grades.push(data);
+  }
 }
