@@ -11,12 +11,12 @@ import { User } from './current-user-profile/user';
 export class AppComponent {
   // username: string = '';
   user: User;
-  isInstructor: boolean = false;
+  isStaff: boolean = false;
 
   constructor(public auth: AuthService) {}
 
   ngDoCheck() {
     this.user = new User(this.auth.getUserName(), !this.auth.isStudent());
-    this.isInstructor = this.auth.isAuthenticated() && !this.auth.isStudent();
+    this.isStaff = this.auth.isAuthenticated() && this.auth.isStaff();
   }
 }

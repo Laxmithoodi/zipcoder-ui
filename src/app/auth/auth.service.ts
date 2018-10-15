@@ -10,7 +10,6 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   static readonly ACCESS_TOKEN_KEY: string = 'zcw-access-token';
   static readonly USER_NAME_KEY: string = 'zcw-user-name';
-  static readonly STAFF_KEY: string = 'zcw-is-staff';
   static readonly STUDENT_ID_KEY: string = 'zcw-student-id';
 
   constructor(private router: Router, private http: HttpClient) { }
@@ -61,6 +60,10 @@ export class AuthService {
 
   public isStudent(): boolean {
     return this.getStudentId() > 0;
+  }
+
+  public isStaff(): boolean {
+    return !this.isStudent();
   }
 
   public getStudentId(): number {
