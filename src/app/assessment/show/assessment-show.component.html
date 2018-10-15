@@ -47,7 +47,7 @@
               <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
               <td>
                 <span *ngIf="student.grades.length > 0">
-                  {{ student.grades[0].grade}}
+                  {{ student.grades[0].grade}} <a href="/grades/{{ student.grades[0].id }}/edit">Edit</a>
                 </span>
                 <span *ngIf="student.grades.length < 1">
                   <input type="number" name="student-grade"

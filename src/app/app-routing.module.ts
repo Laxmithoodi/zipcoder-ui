@@ -15,6 +15,8 @@ import { AssessmentIndexComponent } from './assessment/index/assessment-index.co
 import { AssessmentShowComponent } from './assessment/show/assessment-show.component';
 import { AssessmentFormComponent } from './assessment/form/assessment-form.component';
 
+import { GradeFormComponent } from './assessment/grade/form/form.component';
+
 import { SubmissionIndexComponent } from './submission/index/submission-index.component';
 import { SubmissionFormComponent } from './submission/form/submission-form.component';
 
@@ -57,6 +59,9 @@ const routes: Routes = [
   // note
   {path: 'students/:student_id/notes/new', component: NoteFormComponent},
   {path: 'students/:student_id/notes/:id/edit', component: NoteFormComponent},
+
+  // grade
+  {path: 'grades/:id/edit', component: GradeFormComponent}
 ];
 
 @NgModule({

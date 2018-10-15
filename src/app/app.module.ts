@@ -38,6 +38,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthLogoutComponent } from './auth/logout/auth-logout.component';
 import { LabsComponent } from './student/labs/labs.component';
 import { AssessmentsComponent } from './student/assessments/assessments.component';
+import { GradeFormComponent } from './assessment/grade/form/form.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AssessmentsComponent } from './student/assessments/assessments.componen
     HomeComponent,
     AuthLogoutComponent,
     LabsComponent,
-    AssessmentsComponent
+    AssessmentsComponent,
+    GradeFormComponent
   ],
   imports: [
     BrowserModule,

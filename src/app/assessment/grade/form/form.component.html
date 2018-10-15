@@ -1,0 +1,22 @@
+<h1>Edit grade</h1>
+<form (ngSubmit)="submit()" #gradeForm="ngForm">
+  <div class="form-group">
+    <label for="student_id">Student Id</label>
+    <input type="number" class="form-control" id="student_id"
+           required
+           [(ngModel)]="grade.student_id" name="student_id">
+  </div>
+  <div class="form-group">
+    <label for="assessment_id">Assessment Id</label>
+    <input type="number" class="form-control" id="assessment_id"
+           required
+           [(ngModel)]="grade.assessment_id" name="assessment_id">
+  </div>
+  <div class="form-group">
+    <label for="grade">Score</label>
+    <input type="number" class="form-control" id="grade"
+           required
+           [(ngModel)]="grade.grade" name="grade">
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="loading">Submit</button>
+</form>
