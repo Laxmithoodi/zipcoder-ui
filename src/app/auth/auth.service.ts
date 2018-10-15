@@ -39,8 +39,8 @@ export class AuthService {
       localStorage.setItem(AuthService.USER_NAME_KEY, authResult.person.email);
       // google token expires in 24 hours, but to be safe, we'll do 23
       let twentyThreeHoursInMilliSecond =  23 * 60 * 60 * 1000;
-      let expiredTimeInMilliSecond = Date.now + twentyThreeHoursInMilliSecond);
-      localStorage.setItem(AuthService.EXPIRE_DATE_KEY, expiredTimeInMilliSecond);
+      let expiredTimeInMilliSecond = Date.now() + twentyThreeHoursInMilliSecond;
+      localStorage.setItem(AuthService.EXPIRE_DATE_KEY, expiredTimeInMilliSecond.toString());
     }
   }
 
@@ -55,7 +55,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     let expiredTimeInMilliSecond = localStorage.getItem(AuthService.EXPIRE_DATE_KEY);
     let tokenKey = localStorage.getItem(AuthService.ACCESS_TOKEN_KEY);
-    return tokenKey && (Date.now() < expiredTimeInMilliSecond);
+    return tokenKey && (Date.now() < parseInt(expiredTimeInMilliSecond));
   }
 
   public getAccessToken(): string{

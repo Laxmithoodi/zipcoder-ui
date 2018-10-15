@@ -61,7 +61,7 @@ const routes: Routes = [
   {path: 'students/:student_id/notes/:id/edit', component: NoteFormComponent},
 
   // grade
-  {path: 'grades/:id/edit', component: GradeFormComponent}
+  {path: 'grades/:id/edit', component: GradeFormComponent},
 
   { path: '**', redirectTo: '' }
 ];
