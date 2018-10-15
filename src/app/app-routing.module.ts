@@ -62,6 +62,8 @@ const routes: Routes = [
 
   // grade
   {path: 'grades/:id/edit', component: GradeFormComponent}
+
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
