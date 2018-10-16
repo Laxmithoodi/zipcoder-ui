@@ -25,7 +25,7 @@ export class StudentIndexComponent implements OnInit {
 
   remove(response, student) {
     if (response.message == 'success') {
-      M.toast({html: 'Note deleted!'})
+      M.toast({html: 'Student deleted!'})
       let index = this.students.indexOf(student);
       this.students.splice(index, 1);
     } else {

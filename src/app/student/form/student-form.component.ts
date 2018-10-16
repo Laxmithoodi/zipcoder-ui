@@ -25,6 +25,6 @@ export class StudentFormComponent implements OnInit {
 
   submit(){
     this.loading = true;
-    this.service.create(this.student).subscribe(response => this.router.navigate(['/students/' + response.id]))
+    this.service.create(this.student).subscribe(response => this.router.navigate(['/admin/students/' + response.id]))
   }
 }

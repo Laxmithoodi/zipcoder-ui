@@ -27,7 +27,7 @@ export class AuthComponent implements OnInit {
     if (this.auth.isStudent()) {
       this.router.navigate(['/profile'])
     } else {
-      this.router.navigate(['/students'])
+      this.router.navigate(['/admin/students'])
     }
   }
 

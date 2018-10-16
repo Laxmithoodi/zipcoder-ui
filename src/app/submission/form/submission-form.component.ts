@@ -23,9 +23,8 @@ export class SubmissionFormComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.submission);
     this.loading = true;
-    this.service.create(this.submission).subscribe(data => this.router.navigate(['/submissions']));
+    this.service.create(this.submission).subscribe(data => this.router.navigate(['/admin/submissions']));
   }
 
 }

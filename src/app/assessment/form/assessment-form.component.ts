@@ -25,10 +25,11 @@ export class AssessmentFormComponent implements OnInit {
 
   submit(){
     this.loading = true;
+    let redirectUrl = '/admin/assessments';
     if (this.id) {
-      this.service.update(this.assessment).subscribe(data => this.router.navigate(['/assessments']));
+      this.service.update(this.assessment).subscribe(data => this.router.navigate([redirectUrl]));
     } else {
-      this.service.create(this.assessment).subscribe(data => this.router.navigate(['/assessments']));
+      this.service.create(this.assessment).subscribe(data => this.router.navigate([redirectUrl]));
     }
 
   }

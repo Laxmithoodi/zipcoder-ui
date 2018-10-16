@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       if (this.auth.isStudent()) {
         this.router.navigate(['/profile']);
       } else {
-        this.router.navigate(['/students'])
+        this.router.navigate(['/admin/students'])
       }
     }
   }

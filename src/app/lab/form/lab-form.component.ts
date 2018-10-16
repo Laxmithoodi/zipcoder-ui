@@ -39,10 +39,11 @@ export class LabFormComponent implements OnInit {
 
   submit(){
     this.loading = true;
+    let redirectUrl = '/admin/labs'
     if (this.id) {
-      this.service.update(this.lab).subscribe(data => this.router.navigate(['/labs']));
+      this.service.update(this.lab).subscribe(data => this.router.navigate([redirectUrl]));
     } else {
-      this.service.create(this.lab).subscribe(data => this.router.navigate(['/labs']));
+      this.service.create(this.lab).subscribe(data => this.router.navigate([redirectUrl]));
     }
   }
 

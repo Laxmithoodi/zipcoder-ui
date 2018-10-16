@@ -27,6 +27,8 @@ import { CurrentUserProfileComponent } from './current-user-profile/current-user
 
 import { HomeComponent } from './home/home.component';
 
+import { AuthGuard } from './auth/auth.guard';
+
 const routes: Routes = [
   {path: '', component: HomeComponent},
 
@@ -34,34 +36,39 @@ const routes: Routes = [
   {path: 'auth/:provider/callback', component: AuthComponent},
   {path: 'profile', component: CurrentUserProfileComponent},
 
-  // lab
-  {path: 'labs/new', component: LabFormComponent},
-  {path: 'labs/:id/edit', component: LabFormComponent},
-  {path: 'labs/:id', component: LabShowComponent},
-  {path: 'labs', component: LabIndexComponent},
+  {path: 'admin',
+     canActivate: [AuthGuard],
+     children: [
+       // labs
+       {path: 'labs/new', component: LabFormComponent},
+       {path: 'labs/:id/edit', component: LabFormComponent},
+       {path: 'labs/:id', component: LabShowComponent},
+       {path: 'labs', component: LabIndexComponent},
 
-  // assessments
-  {path: 'assessments/new', component: AssessmentFormComponent},
-  {path: 'assessments/:id/edit', component: AssessmentFormComponent},
-  {path: 'assessments/:id', component: AssessmentShowComponent},
-  {path: 'assessments', component: AssessmentIndexComponent},
+       // assessments
+       {path: 'assessments/new', component: AssessmentFormComponent},
+       {path: 'assessments/:id/edit', component: AssessmentFormComponent},
+       {path: 'assessments/:id', component: AssessmentShowComponent},
+       {path: 'assessments', component: AssessmentIndexComponent},
 
-  // student
-  {path: 'students/new', component: StudentFormComponent},
-  {path: 'students/:id', component: StudentShowComponent},
-  {path: 'students', component: StudentIndexComponent},
+       // student
+       {path: 'students/new', component: StudentFormComponent},
+       {path: 'students/:id', component: StudentShowComponent},
+       {path: 'students', component: StudentIndexComponent},
 
-  // submissions
-  {path: 'submissions/new', component: SubmissionFormComponent},
-  {path: 'submissions', component: SubmissionIndexComponent},
-  {path: 'submissions/:id/edit', component: SubmissionFormComponent},
+       // submissions
+       {path: 'submissions/new', component: SubmissionFormComponent},
+       {path: 'submissions', component: SubmissionIndexComponent},
+       {path: 'submissions/:id/edit', component: SubmissionFormComponent},
 
-  // note
-  {path: 'students/:student_id/notes/new', component: NoteFormComponent},
-  {path: 'students/:student_id/notes/:id/edit', component: NoteFormComponent},
+       // note
+       {path: 'students/:student_id/notes/new', component: NoteFormComponent},
+       {path: 'students/:student_id/notes/:id/edit', component: NoteFormComponent},
 
-  // grade
-  {path: 'grades/:id/edit', component: GradeFormComponent},
+       // grade
+       {path: 'grades/:id/edit', component: GradeFormComponent},
+     ]
+   },
 
   { path: '**', redirectTo: '' }
 ];
