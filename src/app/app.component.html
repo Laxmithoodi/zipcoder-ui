@@ -64,7 +64,7 @@
   </ul>
 </header>
 <main>
-  <div class="right" *ngIf="user.username">
+  <div class="right" *ngIf="isAuthenticated">
     <div class="user-info">Hi {{ user.username }}! <a href="/auth/logout">Logout</a></div>
   </div>
   <router-outlet></router-outlet>
