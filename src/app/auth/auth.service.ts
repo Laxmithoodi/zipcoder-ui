@@ -11,7 +11,7 @@ export class AuthService {
   static readonly ACCESS_TOKEN_KEY: string = 'zcw-access-token';
   static readonly USER_NAME_KEY: string = 'zcw-user-name';
   static readonly STUDENT_ID_KEY: string = 'zcw-student-id';
-  static readonly EXPIRE_DATE_KEY: string = 'zcw-expired-date';
+  static readonly EXPIRE_TIME_KEY: string = 'zcw-expired-time';
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -26,6 +26,7 @@ export class AuthService {
   }
 
   public setSession(authResult): void {
+    this.logout();
     // Set the time that the access token will expire at
     // const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem(AuthService.ACCESS_TOKEN_KEY, authResult.access_token);
@@ -40,7 +41,7 @@ export class AuthService {
       // google token expires in 1 hour, but to be safe, we'll do 55 mins
       let fiftyFiveMinsInMilliSecond =  55 * 60 * 1000;
       let expiredTimeInMilliSecond = Date.now() + fiftyFiveMinsInMilliSecond;
-      localStorage.setItem(AuthService.EXPIRE_DATE_KEY, expiredTimeInMilliSecond.toString());
+      localStorage.setItem(AuthService.EXPIRE_TIME_KEY, expiredTimeInMilliSecond.toString());
     }
   }
 
@@ -49,11 +50,11 @@ export class AuthService {
     localStorage.removeItem(AuthService.ACCESS_TOKEN_KEY);
     localStorage.removeItem(AuthService.USER_NAME_KEY);
     localStorage.removeItem(AuthService.STUDENT_ID_KEY);
-    localStorage.removeItem(AuthService.EXPIRE_DATE_KEY);
+    localStorage.removeItem(AuthService.EXPIRE_TIME_KEY);
   }
 
   public isAuthenticated(): boolean {
-    let expiredTimeInMilliSecond = localStorage.getItem(AuthService.EXPIRE_DATE_KEY);
+    let expiredTimeInMilliSecond = localStorage.getItem(AuthService.EXPIRE_TIME_KEY);
     let tokenKey = localStorage.getItem(AuthService.ACCESS_TOKEN_KEY);
     return tokenKey && (Date.now() < parseInt(expiredTimeInMilliSecond));
   }
