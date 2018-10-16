@@ -53,6 +53,7 @@ const routes: Routes = [
 
        // student
        {path: 'students/new', component: StudentFormComponent},
+       {path: 'students/:id/edit', component: StudentFormComponent},
        {path: 'students/:id', component: StudentShowComponent},
        {path: 'students', component: StudentIndexComponent},
 

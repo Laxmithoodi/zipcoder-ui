@@ -33,6 +33,10 @@ export class StudentService {
     return this.api.post(this.RESOURCE_NAME, student);
   }
 
+  update(student) {
+    return this.api.update(this.RESOURCE_NAME, student);
+  }
+
   delete(student) {
     return this.api.delete(this.RESOURCE_NAME, student);
   }

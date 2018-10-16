@@ -25,6 +25,11 @@ export class StudentFormComponent implements OnInit {
 
   submit(){
     this.loading = true;
-    this.service.create(this.student).subscribe(response => this.router.navigate(['/admin/students/' + response.id]))
+    let redirectUrl = '/admin/students';
+    if (this.id) {
+      this.service.update(this.student).subscribe(response => this.router.navigate([redirectUrl]))
+    } else {
+      this.service.create(this.student).subscribe(response => this.router.navigate([redirectUrl]))
+    }
   }
 }

@@ -26,7 +26,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let student of getNotCompleted(students)">
-            <td><a href="/students/{{student.id}}/show">{{ student.name }}</a></td>
+            <td><a href="/admin/students/{{student.id}}/show">{{ student.name }}</a></td>
           </tr>
         </tbody>
       </table>
@@ -43,11 +43,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let student of getCompleted(students)">
-              <td><a href="/students/{{student.id}}">{{ student.name }}</a></td>
+              <td><a href="/admin/students/{{student.id}}">{{ student.name }}</a></td>
               <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
               <td>
                 <span *ngIf="student.grades.length > 0">
-                  {{ student.grades[0].grade}} <a href="/grades/{{ student.grades[0].id }}/edit">Edit</a>
+                  {{ student.grades[0].grade}} <a href="/admin/grades/{{ student.grades[0].id }}/edit">Edit</a>
                 </span>
                 <span *ngIf="student.grades.length < 1">
                   <input type="number" name="student-grade"

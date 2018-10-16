@@ -8,9 +8,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let assessment of assessments">
-      <td><a href="/assessments/{{assessment.id}}">{{ assessment.name }}</a></td>
+      <td><a href="/admin/assessments/{{assessment.id}}">{{ assessment.name }}</a></td>
       <td><a href="{{ assessment.url }}">{{ assessment.url }}</a></td>
-      <td class="buttons"><a class="btn grey darken-2" href="/assessments/{{ assessment.id }}/edit">Edit</a> <a class="btn red" (click)="delete(assessment)">Delete</a></td>
+      <td class="buttons"><a class="btn grey darken-2" href="/admin/assessments/{{ assessment.id }}/edit">Edit</a> <a class="btn red" (click)="delete(assessment)">Delete</a></td>
     </tr>
   </tbody>
 </table>

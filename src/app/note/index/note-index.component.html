@@ -14,7 +14,7 @@
       <td class="col s5">{{ note.body }}</td>
       <td class="col s1">{{ note.created_at | date: 'MM/dd' }}</td>
       <td class="col s3 buttons">
-        <a class="btn grey darken-2" href="/students/{{student.id}}/notes/{{note.id }}/edit">Edit</a> <a class="btn red" (click)="delete(note)">Delete</a>
+        <a class="btn grey darken-2" href="/admin/students/{{student.id}}/notes/{{note.id }}/edit">Edit</a> <a class="btn red" (click)="delete(note)">Delete</a>
       </td>
     </tr>
   </tbody>
