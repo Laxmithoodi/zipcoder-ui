@@ -40,7 +40,7 @@ export class LabService {
   }
 
   assign(lab) {
-    return this.api.post('students/assign/' + lab.id, {}).subscribe(console.log)
+    return this.api.post('students/assign/' + lab.id, {});
   }
 
   getStudents(lab_id) {

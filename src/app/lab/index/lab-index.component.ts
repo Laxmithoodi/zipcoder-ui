@@ -23,8 +23,16 @@ export class LabIndexComponent implements OnInit {
   }
 
   assign(lab) {
-    lab.assigned_date = new Date();
-    this.service.assign(lab);
+    this.service.assign(lab).subscribe(response => this.handleAssigned(response, lab));
+  }
+
+  handleAssigned(response, lab) {
+    if (response.message == 'success') {
+      M.toast({html: 'Assigned!'})
+      lab.assigned_date = new Date();
+    } else {
+      M.toast({html: 'Unable to assign. Try again.'})
+    }
   }
 
   remove(response, lab) {
