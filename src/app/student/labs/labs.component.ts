@@ -20,12 +20,12 @@ export class LabsComponent implements OnInit {
     return this.sortAssignment(labs.filter(lab => lab['submissions'].length > 0));
   }
 
+
   sortAssignment(data) {
     return data.sort((a, b) => this.timeInMilliSecond(a) - this.timeInMilliSecond(b));
   }
 
   timeInMilliSecond(assignment) {
-    console.log((new Date(assignment.due_date)).getTime());
     return (new Date(assignment.due_date)).getTime();
   }
 }
