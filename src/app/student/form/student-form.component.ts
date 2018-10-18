@@ -11,7 +11,7 @@ import { StudentService } from './../student.service';
 })
 export class StudentFormComponent implements OnInit {
 
-  student: Student;
+  student: Student = new Student();
   id: number;
   loading: boolean = false;
 
