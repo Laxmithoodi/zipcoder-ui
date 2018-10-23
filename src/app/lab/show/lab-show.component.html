@@ -1,3 +1,4 @@
+<div class="lab-show">
 <h1>{{lab.name}}</h1>
 <div class="row">
   <div class="col s2">
@@ -35,16 +36,14 @@
       <table class="striped">
         <thead>
           <th>Name</th>
-          <th>Email</th>
-          <th>Phone #</th>
           <th>Github</th>
         </thead>
         <tbody>
           <tr *ngFor="let student of getNotCompleted(students)">
             <td><a href="/admin/students/{{student.id}}/show">{{ student.name }}</a></td>
-            <td><a href="{{ student.email }}">{{ student.email }}</a></td>
-            <td>{{ student.cell_number }}</td>
-            <td><a href="https://github.com/{{ student.github_username }}">{{ student.github_username }}</a></td>
+            <td>
+              <a href="https://git.zipcode.rocks{{ student.zipcode_rocks_username }}">{{ student.zipcode_rocks_username }}</a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -57,19 +56,16 @@
       <table class="striped">
         <thead>
           <th>Name</th>
-          <th>Email</th>
-          <th>Phone #</th>
-          <th>Github</th>
+          <th>PR</th>
         </thead>
         <tbody>
           <tr *ngFor="let student of getCompleted(students)">
             <td><a href="/admin/students/{{student.id}}">{{ student.name }}</a></td>
-            <td><a href="{{ student.email }}">{{ student.email }}</a></td>
-            <td>{{ student.cell_number }}</td>
-            <td><a href="https://github.com/{{ student.github_username }}">{{ student.github_username }}</a></td>
+            <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div>
 </div>

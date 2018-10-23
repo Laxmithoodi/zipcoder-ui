@@ -28,7 +28,7 @@ export class LabIndexComponent implements OnInit {
 
   handleAssigned(response, lab) {
     if (response.message == 'success') {
-      M.toast({html: 'Assigned!'})
+      M.toast({html: lab.name + ' assigned!'})
       lab.assigned_date = new Date();
     } else {
       M.toast({html: 'Unable to assign. Try again.'})
@@ -37,7 +37,7 @@ export class LabIndexComponent implements OnInit {
 
   remove(response, lab) {
     if (response.message == 'success') {
-      M.toast({html: 'Lab deleted!'})
+      M.toast({html: lab.name + ' deleted!'})
       let index = this.labs.indexOf(lab);
       this.labs.splice(index, 1);
     } else {
