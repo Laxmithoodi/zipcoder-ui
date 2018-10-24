@@ -59,12 +59,24 @@ export class LabIndexComponent implements OnInit {
 
   sortName(){
     if (this.ascName) {
-      this.labs.sort((lab1, lab2) => lab1.name > lab2.name);
+      this.labs.sort(function compare(a,b) {
+        if (a.name < b.name)
+          return -1;
+        if (a.name > b.name)
+          return 1;
+        return 0;
+      });
       this.ascName = false;
     } else {
-      this.labs.sort((lab1, lab2) => lab2.name > lab1.name);
+      this.labs.sort(function compare(a,b) {
+        if (b.name < a.name)
+          return -1;
+        if (b.name > a.name)
+          return 1;
+        return 0;
+      });
       this.ascName = true;
     }
   }
-  
+
 }
