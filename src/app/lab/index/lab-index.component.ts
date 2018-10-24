@@ -11,6 +11,8 @@ import { LabService } from './../lab.service';
 })
 export class LabIndexComponent implements OnInit {
   labs: Array<Lab>;
+  ascSubmissions: boolean = true;
+  ascName: boolean = true;
 
   constructor(private service: LabService) { }
 
@@ -42,6 +44,27 @@ export class LabIndexComponent implements OnInit {
       this.labs.splice(index, 1);
     } else {
       M.toast({html: 'Unable to delete. Try again.'})
+    }
+  }
+
+  sortSubmission() {
+    if (this.ascSubmissions) {
+      this.labs.sort((lab1, lab2) => lab1.submissions.length - lab2.submissions.length);
+      this.ascSubmissions = false;
+    } else {
+      this.labs.sort((lab1, lab2) => lab2.submissions.length - lab1.submissions.length);
+      this.ascSubmissions = true;
+    }
+  }
+
+  sortName(){
+    console.log("sortname");
+    if (this.ascName) {
+      this.labs.sort((lab1, lab2) => lab1.name > lab2.name);
+      this.ascName = false;
+    } else {
+      this.labs.sort((lab1, lab2) => lab2.name > lab1.name);
+      this.ascName = true;
     }
   }
 }
