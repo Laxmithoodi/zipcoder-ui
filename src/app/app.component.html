@@ -1,6 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<header *ngIf="isStaff">
-  <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(0%);">
+<div *ngIf="isStaff">
+  <nav>
+    <ul>
+      <li><a href="/admin/students">Students</a></li>
+      <li><a href="/admin/labs">Labs</a></li>
+    </ul>
+  </nav>
+  <ul id="slide-out" class="sidenav">
       <li class="bold">
         Students
         <ul>
@@ -62,7 +67,9 @@
       </ul>
     </li>
   </ul>
-</header>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fas fa-bars">menu</i></a>
+</div>
+
 <main>
   <div class="right" *ngIf="isAuthenticated">
     <div class="user-info">Hi {{ user.username }}! <a href="/auth/logout">Logout</a></div>

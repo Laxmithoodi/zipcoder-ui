@@ -54,9 +54,13 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    let expiredTimeInMilliSecond = localStorage.getItem(AuthService.EXPIRE_TIME_KEY);
     let tokenKey = localStorage.getItem(AuthService.ACCESS_TOKEN_KEY);
-    return tokenKey && (Date.now() < parseInt(expiredTimeInMilliSecond));
+    if (this.isStudent()) {
+      return tokenKey;
+    } else {
+      let expiredTimeInMilliSecond = localStorage.getItem(AuthService.EXPIRE_TIME_KEY);
+      return tokenKey && (Date.now() < parseInt(expiredTimeInMilliSecond));
+    }
   }
 
   public getAccessToken(): string{

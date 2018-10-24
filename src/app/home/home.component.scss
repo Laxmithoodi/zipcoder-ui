@@ -1,9 +1,11 @@
 .app-home {
+  text-align: center;
   .icon {
     min-width: 100px;
     width: 60%;
     margin-bottom: 50px;
-    margin-left: 10%;
+    margin-top: 20px;
+    max-width: 500px;
   }
 
   .fab {
@@ -11,11 +13,7 @@
     vertical-align: middle;
   }
 
-  .actions {
-    margin-left: 20%;
-  }
-
-  .action {
-    margin: 10px;
+  .action{
+    text-align: center;
   }
 }

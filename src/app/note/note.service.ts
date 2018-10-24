@@ -36,8 +36,6 @@ export class NoteService {
   }
 
   delete(student_id, note) {
-    console.log(this.formatPath(student_id));
-    console.log(note.id);
     return this.api.delete(this.formatPath(student_id), note);
   }
 

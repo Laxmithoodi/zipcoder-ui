@@ -2,12 +2,14 @@
   <img src="/assets/icon.svg" class="responsive-img icon">
 
   <div class="actions">
-    <div>
+    <div class="action">
+      <h3>Students</h3>
       <a class="action btn"  href="https://github.com/login/oauth/authorize?client_id={{github_client}}&redirect_uri={{host}}/auth/github/callback&scope=user:email&state={{ randomString }}">
         <i class="fab fa-github"></i> Log in with Github
       </a>
     </div>
-    <div>
+    <div class="action">
+      <h3>Staff</h3>
       <a class="action btn" href="https://accounts.google.com/o/oauth2/v2/auth?client_id={{google_client}}&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&redirect_uri={{host}}/auth/google/callback&state={{ randomString }}">
         <i class="fab fa-google-plus-square"></i> Log in with Google
       </a>

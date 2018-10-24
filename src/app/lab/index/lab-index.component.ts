@@ -58,7 +58,6 @@ export class LabIndexComponent implements OnInit {
   }
 
   sortName(){
-    console.log("sortname");
     if (this.ascName) {
       this.labs.sort((lab1, lab2) => lab1.name > lab2.name);
       this.ascName = false;
@@ -67,4 +66,5 @@ export class LabIndexComponent implements OnInit {
       this.ascName = true;
     }
   }
+  
 }

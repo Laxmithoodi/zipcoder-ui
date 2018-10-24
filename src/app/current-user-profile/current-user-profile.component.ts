@@ -38,7 +38,6 @@ export class CurrentUserProfileComponent implements OnInit {
   }
 
   getNotCompleted(labs) {
-    console.log(labs);
     return labs.filter(lab => lab['submissions'].length == 0);
   }
 
