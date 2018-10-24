@@ -9,7 +9,7 @@
       <tbody>
         <tr *ngFor="let lab of getNotCompleted(labs)">
           <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
-          <td>{{ lab.due_date | date }}</td>
+          <td>{{ lab.due_date | date:'E M/d' }}</td>
         </tr>
       </tbody>
     </table>
