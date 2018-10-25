@@ -16,7 +16,7 @@
 
 
 <div class="row cards">
-  <div class="col m4 card">
+  <div class="col m3 card">
     <div class="card-content">
       <div class="card-title title">NOT Completed</div>
 
@@ -32,18 +32,20 @@
       </table>
     </div>
   </div>
-  <div class="col m7 card">
+  <div class="col m8 card">
     <div class="card-content">
       <div class="card-title title">Completed</div>
         <table class="striped">
           <thead>
             <th>Name</th>
+            <th>Username</th>
             <th>PR</th>
             <th>Score</th>
           </thead>
           <tbody>
             <tr *ngFor="let student of getCompleted(students)">
               <td><a href="/admin/students/{{student.id}}">{{ student.name }}</a></td>
+              <td>{{ student.zipcode_rocks_username }}</td>
               <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
               <td>
                 <span *ngIf="student.grades.length > 0">
