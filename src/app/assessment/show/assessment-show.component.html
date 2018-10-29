@@ -6,6 +6,12 @@
         <div>{{ assessment.id }}</div>
     </div>
   </div>
+  <div class="col s1">
+    <div class="form-group">
+        <label for="max_score">Max Score</label>
+        <div>{{ assessment.max_score }}</div>
+    </div>
+  </div>
   <div class="col s4">
     <div class="form-group">
         <label for="url_inline">Url</label>
@@ -25,7 +31,7 @@
           <th>Name</th>
         </thead>
         <tbody>
-          <tr *ngFor="let student of getNotCompleted(students)">
+          <tr *ngFor="let student of notCompletedStudents">
             <td><a href="/admin/students/{{student.id}}/show">{{ student.name }}</a></td>
           </tr>
         </tbody>
@@ -40,16 +46,16 @@
             <th>Name</th>
             <th>Username</th>
             <th>PR</th>
-            <th>Score</th>
+            <th (click)="sortScore()">Score</th>
           </thead>
           <tbody>
-            <tr *ngFor="let student of getCompleted(students)">
+            <tr *ngFor="let student of completedStudents">
               <td><a href="/admin/students/{{student.id}}">{{ student.name }}</a></td>
               <td>{{ student.zipcode_rocks_username }}</td>
               <td><a href="{{ student.submissions[0].pr_url }}">PR</a></td>
               <td>
                 <span *ngIf="student.grades.length > 0">
-                  {{ student.grades[0].grade}} <a href="/admin/grades/{{ student.grades[0].id }}/edit">Edit</a>
+                  {{ student.grades[0].grade }} ({{ gradePercent(student) }}%) <a href="/admin/grades/{{ student.grades[0].id }}/edit">Edit</a>
                 </span>
                 <span *ngIf="student.grades.length < 1">
                   <input type="number" name="student-grade"

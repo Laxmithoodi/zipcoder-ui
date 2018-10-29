@@ -1,3 +1,5 @@
+import { Grade } from './../assessment/grade/grade';
+
 export class Student {
   id: number;
   name: string;
@@ -6,6 +8,7 @@ export class Student {
   github_id: number;
   github_username: string;
   zipcode_rocks_username: string;
+  grades: Grade[];
   grade: number;
 
   public constructor(fields?:Partial<Student>) {

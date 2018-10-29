@@ -13,7 +13,9 @@ import { Student } from './../../student/student';
 })
 export class AssessmentShowComponent implements OnInit {
   assessment: Assessment = new Assessment();
-  students: Student[] = [];
+  ascScore = false;
+  notCompletedStudents: Student[] = [];
+  completedStudents: Student[] = [];
 
   constructor(private route: ActivatedRoute, private service: AssessmentService) {
     this.assessment.id = this.route.snapshot.params['id'];
@@ -21,7 +23,12 @@ export class AssessmentShowComponent implements OnInit {
 
   ngOnInit() {
     this.service.get(this.assessment.id).subscribe(data => this.assessment = data);
-    this.service.getStudents(this.assessment).subscribe(data => this.students = data);
+    this.service.getStudents(this.assessment).subscribe(data => this.populateStudents(data, this));
+  }
+
+  populateStudents(data, obj) {
+    obj.completedStudents = obj.getCompleted(data);
+    obj.notCompletedStudents = obj.getNotCompleted(data);
   }
 
   getNotCompleted(students) {
@@ -39,4 +46,20 @@ export class AssessmentShowComponent implements OnInit {
   updateStudentView(data, student) {
     student.grades.push(data);
   }
+
+
+  sortScore(){
+    if (this.ascScore) {
+      this.completedStudents.sort((s1, s2) => s1.grades[0].grade - s2.grades[0].grade);
+      this.ascScore = false;
+    } else {
+      this.completedStudents.sort((s1, s2) => s2.grades[0].grade - s1.grades[0].grade);
+      this.ascScore = true;
+    }
+  }
+
+  gradePercent(student) {
+    return (student.grades[0].grade * 100)/this.assessment.max_score
+  }
+
 }
