@@ -11,8 +11,8 @@
     <tr *ngFor="let assessment of assessments">
       <td>{{ assessment.id }}</td>
       <td>{{ assessment.level }}</td>
-      <td>{{ assessment.name }}</td>
-      <td>{{ assessment.grades[0] ? assessment.grades[0].grade : '' }}/{{assessment.max_score}}</td>
+      <td><a href="{{ assessment.url }}">{{ assessment.name }}</a></td>
+      <td>{{ formatGrade(assessment) }}</td>
       <td>
         <span *ngIf="assessment.submissions">
           <a href="{{ assessment.submissions.pr_url }}">PR</a>
