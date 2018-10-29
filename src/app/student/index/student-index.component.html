@@ -3,16 +3,16 @@
 <table class="striped">
   <thead>
     <th>Name</th>
-    <th>Email</th>
-    <th>Phone #</th>
+    <th>Lab PR</th>
+    <th *ngFor="let assessment of assessments">{{ assessment.name }}</th>
     <th>Github</th>
     <th>Action</th>
   </thead>
   <tbody>
     <tr *ngFor="let student of students">
       <td><a href="/admin/students/{{student.id}}">{{ student.name }}</a></td>
-      <td><a href="{{ student.email }}">{{ student.email }}</a></td>
-      <td>{{ student.cell_number }}</td>
+      <td>{{ student.submissions.length }}</td>
+      <td *ngFor="let assessment of assessments">{{ getGradeForAssessment(assessment, student.grades) }}</td>
       <td><a href="https://github.com/{{ student.github_username }}">{{ student.github_username }}</a></td>
       <td class="buttons">
         <a class="btn grey darken-2" href="/admin/students/{{ student.id }}/edit">Edit</a>

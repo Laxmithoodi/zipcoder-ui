@@ -4,6 +4,9 @@ import * as M from "materialize-css/dist/js/materialize";
 import { Student } from './../student';
 import { StudentService } from './../student.service';
 
+import { Assessment } from './../../assessment/assessment';
+import { AssessmentService } from './../../assessment/assessment.service';
+
 @Component({
   selector: 'app-student-index',
   templateUrl: './student-index.component.html',
@@ -11,12 +14,14 @@ import { StudentService } from './../student.service';
 })
 export class StudentIndexComponent implements OnInit {
 
-  students: Array<Student>;
+  students: Student[] = [];
+  assessments: Assessment[] = [];
 
-  constructor(private service: StudentService) { }
+  constructor(private service: StudentService, private assessmentService: AssessmentService) { }
 
   ngOnInit() {
     this.service.getAll().subscribe(data => this.students = data);
+    this.assessmentService.getAll().subscribe(data => this.assessments = data);
   }
 
   delete(student) {
@@ -31,5 +36,10 @@ export class StudentIndexComponent implements OnInit {
     } else {
       M.toast({html: 'Unable to delete. Try again.'})
     }
+  }
+
+  getGradeForAssessment(assessment, grades){
+    let grade = grades.find(grade => return grade.assessment_id == assessment.id);
+    return (grade) ? grade.grade : -1;
   }
 }
