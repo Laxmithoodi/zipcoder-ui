@@ -39,7 +39,7 @@ export class StudentIndexComponent implements OnInit {
   }
 
   getGradeForAssessment(assessment, grades){
-    let grade = grades.find(grade => return grade.assessment_id == assessment.id);
+    let grade = grades.find(function(grade) { return grade.assessment_id == assessment.id});
     return (grade) ? grade.grade : -1;
   }
 }
