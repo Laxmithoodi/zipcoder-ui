@@ -12,7 +12,7 @@
       <td>{{ assessment.id }}</td>
       <td>{{ assessment.level }}</td>
       <td>{{ assessment.name }}</td>
-      <td>{{ assessment.grades[0] ? assessment.grades[0].grade : '' }}</td>
+      <td>{{ assessment.grades[0] ? assessment.grades[0].grade : '' }}/{{assessment.max_score}}</td>
       <td>
         <span *ngIf="assessment.submissions">
           <a href="{{ assessment.submissions.pr_url }}">PR</a>

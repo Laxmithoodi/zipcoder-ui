@@ -24,7 +24,7 @@
       <tbody>
         <tr *ngFor="let lab of getCompleted(labs)">
           <td><a href="{{ lab.url }}">{{ lab.name }}</a></td>
-          <td></td>
+          <td><a href="{{ lab.submissions[0].pr_url }}">PR</a></td>
         </tr>
       </tbody>
     </table>
