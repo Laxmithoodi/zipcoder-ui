@@ -4,6 +4,8 @@ import * as M from "materialize-css/dist/js/materialize";
 import { Lab } from './../lab';
 import { LabService } from './../lab.service';
 
+import { Comparator } from './../../helper/comparator';
+
 @Component({
   selector: 'app-lab-index',
   templateUrl: './lab-index.component.html',
@@ -11,8 +13,8 @@ import { LabService } from './../lab.service';
 })
 export class LabIndexComponent implements OnInit {
   labs: Array<Lab>;
-  ascSubmissions: boolean = true;
-  ascName: boolean = true;
+  ascSubmissions: boolean = false;
+  ascName: boolean = false;
 
   constructor(private service: LabService) { }
 
@@ -48,35 +50,13 @@ export class LabIndexComponent implements OnInit {
   }
 
   sortSubmission() {
-    if (this.ascSubmissions) {
-      this.labs.sort((lab1, lab2) => lab1.submissions.length - lab2.submissions.length);
-      this.ascSubmissions = false;
-    } else {
-      this.labs.sort((lab1, lab2) => lab2.submissions.length - lab1.submissions.length);
-      this.ascSubmissions = true;
-    }
+    Comparator.sortBySubmissions(this.labs, this.ascSubmissions);
+    this.ascSubmissions = !this.ascSubmissions;
   }
 
   sortName(){
-    if (this.ascName) {
-      this.labs.sort(function compare(a,b) {
-        if (a.name < b.name)
-          return -1;
-        if (a.name > b.name)
-          return 1;
-        return 0;
-      });
-      this.ascName = false;
-    } else {
-      this.labs.sort(function compare(a,b) {
-        if (b.name < a.name)
-          return -1;
-        if (b.name > a.name)
-          return 1;
-        return 0;
-      });
-      this.ascName = true;
-    }
+    Comparator.sortByName(this.labs, this.ascName);
+    this.ascName = !this.ascName;
   }
 
 }

@@ -1,4 +1,5 @@
 import { Grade } from './../assessment/grade/grade';
+import { Submission } from './../submission/submission';
 
 export class Student {
   id: number;
@@ -10,6 +11,7 @@ export class Student {
   zipcode_rocks_username: string;
   grades: Grade[];
   grade: number;
+  submissions: Submission[];
 
   public constructor(fields?:Partial<Student>) {
       Object.assign(this, fields);

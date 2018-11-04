@@ -2,9 +2,9 @@
 
 <table class="striped">
   <thead>
-    <th>Name</th>
-    <th>Lab PR</th>
-    <th *ngFor="let assessment of assessments">{{ assessment.name }}</th>
+    <th (click)="sortName()">Name</th>
+    <th (click)="sortLab()">Lab PR</th>
+    <th *ngFor="let assessment of assessments" (click)="sortAssessment(assessment)">{{ assessment.name }}</th>
     <th>Github</th>
     <th>Action</th>
   </thead>
