@@ -11,7 +11,12 @@
   <tbody>
     <tr *ngFor="let student of students">
       <td><a href="/admin/students/{{student.id}}">{{ student.name }}</a></td>
-      <td>{{ student.submissions.length }}</td>
+      <td>
+        {{ student.submissions.length }} ({{formatLabProgress(student)}})
+        <div class="progress">
+          <div class="determinate" [style.width]="formatLabProgress(student)"></div>
+        </div>
+      </td>
       <td *ngFor="let assessment of assessments">{{ getGradeForAssessment(assessment, student.grades) }}</td>
       <td><a href="https://github.com/{{ student.github_username }}">{{ student.github_username }}</a></td>
       <td class="buttons">

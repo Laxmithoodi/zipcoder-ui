@@ -6,6 +6,7 @@ import { StudentService } from './../student.service';
 
 import { Assessment } from './../../assessment/assessment';
 import { AssessmentService } from './../../assessment/assessment.service';
+import { LabService } from './../../lab/lab.service';
 
 import { Comparator } from './../../helper/comparator';
 
@@ -21,12 +22,20 @@ export class StudentIndexComponent implements OnInit {
   ascLab = false;
   ascAssessment = false;
   ascName = false;
+  labCount = 0;
 
-  constructor(private service: StudentService, private assessmentService: AssessmentService) { }
+  constructor(private service: StudentService,
+              private assessmentService: AssessmentService,
+              private labService: LabService) { }
 
   ngOnInit() {
     this.service.getAll().subscribe(data => this.students = data);
     this.assessmentService.getAll().subscribe(data => this.assessments = data);
+    this.labService.getAll().subscribe(data => this.labCount = this.getLabCount(data));
+  }
+
+  getLabCount(labs) {
+    return labs.filter((lab) => lab.assigned_date).length;
   }
 
   delete(student) {
@@ -65,5 +74,9 @@ export class StudentIndexComponent implements OnInit {
   sortName(){
     Comparator.sortByName(this.students, this.ascName);
     this.ascName = !this.ascName;
+  }
+
+  formatLabProgress(student) {
+    return Math.floor((student.submissions.length/this.labCount) * 100) + "%" ;
   }
 }
