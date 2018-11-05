@@ -5,6 +5,7 @@ import { Lab } from './../lab';
 import { LabService } from './../lab.service';
 
 import { Comparator } from './../../helper/comparator';
+import { StudentService } from './../../student/student.service';
 
 @Component({
   selector: 'app-lab-index',
@@ -15,11 +16,13 @@ export class LabIndexComponent implements OnInit {
   labs: Array<Lab>;
   ascSubmissions: boolean = false;
   ascName: boolean = false;
+  studentCount = 0;
 
-  constructor(private service: LabService) { }
+  constructor(private service: LabService, private studentService: StudentService) { }
 
   ngOnInit() {
     this.service.getAll().subscribe(data => this.labs = data);
+    this.studentService.getAll().subscribe(data => this.studentCount = data.length);
   }
 
   delete(lab) {
@@ -59,4 +62,7 @@ export class LabIndexComponent implements OnInit {
     this.ascName = !this.ascName;
   }
 
+  formatProgress(lab) {
+    return Math.floor((lab.submissions.length/this.studentCount) * 100) + "%" ;
+  }
 }

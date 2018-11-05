@@ -15,7 +15,10 @@
       <td><a href="/admin/labs/{{lab.id}}">{{ lab.name }}</a></td>
       <td><a href="{{ lab.url }}">Git</a></td>
       <td>
-        {{lab.submissions.length}}
+        {{lab.submissions.length}} ({{formatProgress(lab)}})
+        <div class="progress">
+          <div class="determinate" [style.width]="formatProgress(lab)"></div>
+        </div>
       </td>
       <td><button class="btn" (click)="assign(lab)">Assign</button></td>
       <td>{{ lab.assigned_date | date:'E M/d' }}</td>
