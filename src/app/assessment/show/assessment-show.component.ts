@@ -59,7 +59,7 @@ export class AssessmentShowComponent implements OnInit {
   }
 
   gradePercent(student) {
-    return (student.grades[0].grade * 100)/this.assessment.max_score
+    return Math.floor((student.grades[0].grade * 100)/this.assessment.max_score);
   }
 
 }
